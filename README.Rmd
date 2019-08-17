@@ -18,22 +18,21 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/RohanAlexander/auspol.svg?branch=master)](https://travis-ci.org/RohanAlexander/auspol)
 <!-- badges: end -->
 
-The goal of auspol is to ...
+`auspol` is an collection of datasets related to Australian politics that I put together and kept having to copy from project to project. The datasets are:
+
+* Politians
+* Votes
 
 ## Installation
 
-You can install the released version of auspol from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("auspol")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("RohanAlexander/auspol")
 ```
+
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:

@@ -1,10 +1,10 @@
-## code to prepare `DATASET` dataset goes here
+## code to prepare all_individuals dataset goes here
+library(readr)
 
-library(tidyverse)
-politicians <- read_csv("~/Downloads/individuals.csv",
+all_individuals <- read_csv("data-raw/all_individuals.csv",
                         col_names = TRUE,
-                        cols(
-                          unique_ID = col_character(),
+                        col_types = cols(
+                          uniqueID = col_character(),
                           hansardID = col_character(),
                           surname = col_character(),
                           allOtherNames = col_character(),
@@ -22,4 +22,4 @@ politicians <- read_csv("~/Downloads/individuals.csv",
                           adb = col_character()
                         ))
 
-usethis::use_data(politicians)
+usethis::use_data(all_individuals)
