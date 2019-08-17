@@ -1,13 +1,13 @@
 Package: auspol
-Title: What the Package Does (One Line, Title Case)
+Title: Provides Datasets About Australian Politics
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Rohan",
            family = "Alexander",
            role = c("aut", "cre"),
            email = "rohan.alexander@utoronto.ca",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           comment = c(ORCID = "0000-0001-6759-7276"))
+Description: This package provides a variety of datasets related to Australian politics that I commonly copied from project to project. By distributing them using this package, they can hopefully all remain updated to the same extent and reduce time copying and pasting.
 Depends:
     R (>= 2.10)
 License: MIT + file LICENSE

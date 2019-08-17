@@ -13,8 +13,24 @@ status](https://travis-ci.org/RohanAlexander/auspol.svg?branch=master)](https://
 that I put together and kept having to copy from project to project. The
 datasets are:
 
-  - Politians
-  - Votes
+  - all\_individuals. The key dataset. One row per politician, with
+    columns: uniqueID, hansardID (for linking to hansard), surname,
+    allOtherNames, firstName, commonName, displayName,
+    earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate,
+    comments, wikipedia, adb.
+  - by\_division. Adds information about the division (‘seat’) of the
+    politician. One row per division-politician, with columns: uniqueID,
+    division, state, electionDate, byElection, reasonCeasedToBeMember,
+    changedSeat, ceasedToBeMemberDate, Comment.
+  - by\_house. Adds information about the house of parliament of the
+    politician. One row per house-politician, with columns: uniqueID,
+    house.
+  - by\_party. Adds information about the party of the politician. One
+    row per party-politician, with columns: uniqueID, party, partyFrom,
+    partyTo, comment.
+  - list\_prime\_ministers. Adds information about whether the
+    politician has been prime minister. One row per politician, with
+    columns: uniqueID, wasPrimeMinister.
 
 ## Installation
 
@@ -27,33 +43,25 @@ devtools::install_github("RohanAlexander/auspol")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a example of how to load the data:
 
 ``` r
-library(auspol)
-## basic example code
+library(tidyverse)
+
+devtools::install_github("RohanAlexander/auspol")
+
+all_individuals <- auspol::all_individuals %>% as_tibble()
+by_division <- auspol::by_division %>% as_tibble()
+by_house <- auspol::by_house %>% as_tibble()
+by_party <- auspol::by_party %>% as_tibble()
+list_prime_ministers <- auspol::list_prime_ministers %>% as_tibble()
+
+summary(all_individuals)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+You could then combine the tables using left\_join:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+all_individuals_with_their_division <- all_individuals %>% 
+  left_join(by_division, by = c("uniqueID"))
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
