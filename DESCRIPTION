@@ -2,14 +2,17 @@ Package: auspol
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Rohan",
+           family = "Alexander",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "rohan.alexander@utoronto.ca",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: What license it uses
+Depends:
+    R (>= 2.10)
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/RohanAlexander/auspol
 BugReports: https://github.com/RohanAlexander/auspol/issues
+RoxygenNote: 6.1.1

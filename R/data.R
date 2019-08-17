@@ -1,0 +1,25 @@
+#' Data from Experiment 1
+#'
+#' This is data from the first experiment ever to try XYZ using Mechanical
+#' Turk workers.
+#'
+#' @format A data frame with NNNN rows and NN variables:
+#' \describe{
+#'	\item{adb}{HAHAHAH}
+#'	\item{allOtherNames}{HAHAHAH}
+#'	\item{birthDate}{HAHAHAH}
+#'	\item{birthYear}{HAHAHAH}
+#'	\item{comments}{HAHAHAH}
+#'	\item{commonName}{HAHAHAH}
+#'	\item{deathDate}{HAHAHAH}
+#'	\item{displayName}{HAHAHAH}
+#'	\item{earlierOrLaterNames}{HAHAHAH}
+#'	\item{firstName}{HAHAHAH}
+#'	\item{gender}{HAHAHAH}
+#'	\item{hansardID}{HAHAHAH}
+#'	\item{surname}{HAHAHAH}
+#'	\item{title}{HAHAHAH}
+#'	\item{unique_ID}{HAHAHAH}
+#'	\item{wikipedia}{HAHAHAH}
+#' }
+"politicians"
