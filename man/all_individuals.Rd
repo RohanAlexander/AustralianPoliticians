@@ -6,22 +6,23 @@
 \title{Data from Experiment 1}
 \format{A data frame with NNNN rows and NN variables:
 \describe{
-\item{adb}{HAHAHAH}
-\item{allOtherNames}{HAHAHAH}
-\item{birthDate}{HAHAHAH}
-\item{birthYear}{HAHAHAH}
-\item{comments}{HAHAHAH}
-\item{commonName}{HAHAHAH}
-\item{deathDate}{HAHAHAH}
-\item{displayName}{HAHAHAH}
-\item{earlierOrLaterNames}{HAHAHAH}
-\item{firstName}{HAHAHAH}
-\item{gender}{HAHAHAH}
-\item{hansardID}{HAHAHAH}
-\item{surname}{HAHAHAH}
-\item{title}{HAHAHAH}
-\item{uniqueID}{HAHAHAH}
-\item{wikipedia}{HAHAHAH}
+ \item{uniqueID}{HAHAHAHAHAHA}
+ \item{surname}{HAHAHAHAHAHA}
+ \item{allOtherNames}{HAHAHAHAHAHA}
+ \item{firstName}{HAHAHAHAHAHA}
+ \item{commonName}{HAHAHAHAHAHA}
+ \item{displayName}{HAHAHAHAHAHA}
+ \item{earlierOrLaterNames}{HAHAHAHAHAHA}
+ \item{title}{HAHAHAHAHAHA}
+ \item{gender}{HAHAHAHAHAHA}
+ \item{birthDate}{HAHAHAHAHAHA}
+ \item{birthYear}{HAHAHAHAHAHA}
+ \item{deathDate}{HAHAHAHAHAHA}
+ \item{member}{HAHAHAHAHAHA}
+ \item{senator}{HAHAHAHAHAHA}
+ \item{wikipedia}{HAHAHAHAHAHA}
+ \item{adb}{HAHAHAHAHAHA}
+ \item{comments}{HAHAHAHAHAHA}
 }}
 \usage{
 all_individuals

@@ -7,9 +7,13 @@
 \format{A data frame with NNNN rows and NN variables:
 \describe{
 \item{uniqueID}{HAHAHA}
-\item{party}{HAHAHA}
-\item{partyFrom}{HAHAHA}
-\item{partyTo}{HAHAHA}
+\item{partyAbbreviationParlHandbook}{HAHAHA}
+\item{partyNameParlHandbook}{HAHAHA}
+\item{partyFromParlHandbook}{HAHAHA}
+\item{partyToParlHandbook}{HAHAHA}
+\item{partyChangedName}{HAHAHA}
+\item{partySimplified}{HAHAHA}
+\item{specificDateWasInputted}{HAHAHA}
 \item{comment}{HAHAHA}
 }}
 \usage{
