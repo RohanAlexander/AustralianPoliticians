@@ -3,17 +3,16 @@
 \docType{data}
 \name{list_prime_ministers}
 \alias{list_prime_ministers}
-\title{Data from Exdperiment 1}
-\format{A data frame with NNNN rows and NN variables:
+\title{List of prime ministers}
+\format{A data frame with 30 rows and 2 variables:
 \describe{
-\item{uniqueID}{HAHAHA}
-\item{wasPrimeMinister}{HAHAHA}
+\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+\item{wasPrimeMinister}{A binary indicator as to whether the person was ever prime minister.}
 }}
 \usage{
 list_prime_ministers
 }
 \description{
-This is data from the first experiment ever to try XYZ using Mechanical
-Turk workers.
+This is a list of the Australian prime ministers, as of 24 August 2019.
 }
 \keyword{datasets}

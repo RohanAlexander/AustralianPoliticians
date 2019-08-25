@@ -3,24 +3,23 @@
 \docType{data}
 \name{mps_by_division}
 \alias{mps_by_division}
-\title{Data from Experiwment 1}
-\format{A data frame with NNNN rows and NN variables:
+\title{Data by division for members.}
+\format{A data frame with 1,418 rows and 9 variables:
 \describe{
-\item{uniqueID}{HAHAHA}
-\item{division}{HAHAHA}
-\item{state}{HAHAHA}
-\item{byElection}{HAHAHA}
-\item{from}{HAHAHA}
-\item{to}{HAHAHA}
-\item{reasonCeasedToBeMember}{HAHAHA}
-\item{changedSeat}{HAHAHA}
-\item{comments}{HAHAHA}
+\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+\item{division}{The name of the division.}
+\item{state}{The state of the division.}
+\item{byElection}{Whether the member was elected in a by-election.}
+\item{from}{When did the member start representing that division.}
+\item{to}{When did the member finish representing that division.}
+\item{reasonCeasedToBeMember}{Why did they stop?}
+\item{changedSeat}{Was it just that they changed seats?}
+\item{comments}{Miscellaneous comments.}
 }}
 \usage{
 mps_by_division
 }
 \description{
-This is data from the first experiment ever to try XYZ using Mechanical
-Turk workers.
+This is data about the division that a particular member represents.
 }
 \keyword{datasets}

@@ -3,22 +3,21 @@
 \docType{data}
 \name{senators_by_state}
 \alias{senators_by_state}
-\title{Data from Experiwment 1}
-\format{A data frame with NNNN rows and NN variables:
+\title{Senators by state}
+\format{A data frame with 684 rows and 7 variables:
 \describe{
-\item{uniqueID}{HAHAHA}
-\item{state}{HAHAHA}
-\item{from}{HAHAHA}
-\item{to}{HAHAHA}
-\item{reasonCeasedToBeSenator}{HAHAHA}
-\item{section15Selection}{HAHAHA}
-\item{comments}{HAHAHA}
+\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+\item{state}{The state that they represented.}
+\item{from}{When they were elected.}
+\item{to}{Their last day of being a senator.}
+\item{reasonCeasedToBeSenator}{Why did they stop being a senator?}
+\item{section15Selection}{Was the senator appointed, rather than voted?}
+\item{comments}{Miscellaneous comments.}
 }}
 \usage{
 senators_by_state
 }
 \description{
-This is data from the first experiment ever to try XYZ using Mechanical
-Turk workers.
+This provides information about the state that a senator represents, as of 24 August 2019.
 }
 \keyword{datasets}

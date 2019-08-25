@@ -3,24 +3,23 @@
 \docType{data}
 \name{by_party}
 \alias{by_party}
-\title{Data from Experaiment 1}
-\format{A data frame with NNNN rows and NN variables:
+\title{Party of each individual}
+\format{A data frame with 2,257 rows and 9 variables:
 \describe{
-\item{uniqueID}{HAHAHA}
-\item{partyAbbreviationParlHandbook}{HAHAHA}
-\item{partyNameParlHandbook}{HAHAHA}
-\item{partyFromParlHandbook}{HAHAHA}
-\item{partyToParlHandbook}{HAHAHA}
-\item{partyChangedName}{HAHAHA}
-\item{partySimplified}{HAHAHA}
-\item{specificDateWasInputted}{HAHAHA}
-\item{comment}{HAHAHA}
+\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+\item{partyAbbreviationParlHandbook}{The party abbreviation that is used by the parliamentary handbook.}
+\item{partyNameParlHandbook}{The party name that is used by the parliamentary handbook.}
+\item{partyFromParlHandbook}{The date that the person joined the party. This is empty if it would be the same as when they started being a member or senator.}
+\item{partyToParlHandbook}{The date that the person left the party. This is empty if it would be the same as when they stopped being a member or senator.}
+\item{partyChangedName}{Did the party just change its name e.g. the Nationals.}
+\item{partySimplified}{Is there a not completely accurate party name that may be more useful than the strictly correct names.}
+\item{specificDateWasInputted}{A binary for whether accuracy has been imposed on the date, say there was only a month and a year then this would imply a day (1) has been added.}
+\item{comment}{Miscellaneous comments.}
 }}
 \usage{
 by_party
 }
 \description{
-This is data from the first experiment ever to try XYZ using Mechanical
-Turk workers.
+This is data about the party of each individual.
 }
 \keyword{datasets}

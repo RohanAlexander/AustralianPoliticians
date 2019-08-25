@@ -3,32 +3,33 @@
 \docType{data}
 \name{all_individuals}
 \alias{all_individuals}
-\title{Data from Experiment 1}
-\format{A data frame with NNNN rows and NN variables:
+\title{All individuals}
+\format{A data frame with 1,780 rows and 17 variables that is current as of 24 August 2019:
 \describe{
- \item{uniqueID}{HAHAHAHAHAHA}
- \item{surname}{HAHAHAHAHAHA}
- \item{allOtherNames}{HAHAHAHAHAHA}
- \item{firstName}{HAHAHAHAHAHA}
- \item{commonName}{HAHAHAHAHAHA}
- \item{displayName}{HAHAHAHAHAHA}
- \item{earlierOrLaterNames}{HAHAHAHAHAHA}
- \item{title}{HAHAHAHAHAHA}
- \item{gender}{HAHAHAHAHAHA}
- \item{birthDate}{HAHAHAHAHAHA}
- \item{birthYear}{HAHAHAHAHAHA}
- \item{deathDate}{HAHAHAHAHAHA}
- \item{member}{HAHAHAHAHAHA}
- \item{senator}{HAHAHAHAHAHA}
- \item{wikipedia}{HAHAHAHAHAHA}
- \item{adb}{HAHAHAHAHAHA}
- \item{comments}{HAHAHAHAHAHA}
+ \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+ \item{surname}{The surname of the politician.}
+ \item{allOtherNames}{The other names of the politician.}
+ \item{firstName}{The first name of the politician.}
+ \item{commonName}{The common name of the politician, for instance, Ted instead of Edward.}
+ \item{displayName}{The combination of common name (when it exists), and first name otherwise, with surname.}
+ \item{earlierOrLaterNames}{Just in case they changed their names.}
+ \item{title}{Whether the person has a title.}
+ \item{gender}{What gender is the person.}
+ \item{birthDate}{What is their birthdate?}
+ \item{birthYear}{In some cases the specific birthday isn't known, but the birth year is.}
+ \item{deathDate}{What date did they die?}
+ \item{member}{Where they a member of the house of representatives?}
+ \item{senator}{Where they a senator?}
+ \item{wikipedia}{The wikipedia link.}
+ \item{adb}{The Australian Dictionary of Biography link.}
+ \item{comments}{Miscellaneous comments.}
 }}
 \usage{
 all_individuals
 }
 \description{
-This is data from the first experiment ever to try XYZ using Mechanical
-Turk workers.
+This is data about every individual who has been elected to the Australian
+House of Representatives or the Senate. Each row is an individual, and the
+columns are various pieces of information.
 }
 \keyword{datasets}

@@ -18,13 +18,12 @@ datasets are:
     allOtherNames, firstName, commonName, displayName,
     earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate,
     comments, wikipedia, adb.
-  - by\_division. Adds information about the division (‘seat’) of the
-    politician. One row per division-politician, with columns: uniqueID,
-    division, state, electionDate, byElection, reasonCeasedToBeMember,
-    changedSeat, ceasedToBeMemberDate, Comment.
-  - by\_house. Adds information about the house of parliament of the
-    politician. One row per house-politician, with columns: uniqueID,
-    house.
+  - mps\_by\_division Adds information about the division (‘seat’) of
+    the politician. One row per division-politician, with columns:
+    uniqueID, division, state, electionDate, byElection,
+    reasonCeasedToBeMember, changedSeat, ceasedToBeMemberDate, Comment.
+  - senators\_by\_state. Adds information about the state that a senator
+    was representing.
   - by\_party. Adds information about the party of the politician. One
     row per party-politician, with columns: uniqueID, party, partyFrom,
     partyTo, comment.
@@ -51,9 +50,9 @@ library(tidyverse)
 devtools::install_github("RohanAlexander/auspol")
 
 all_individuals <- auspol::all_individuals %>% as_tibble()
-by_division <- auspol::by_division %>% as_tibble()
-by_house <- auspol::by_house %>% as_tibble()
+mps_by_division <- auspol::mps_by_division %>% as_tibble()
 by_party <- auspol::by_party %>% as_tibble()
+senators_by_state <- auspol::senators_by_state %>% as_tibble()
 list_prime_ministers <- auspol::list_prime_ministers %>% as_tibble()
 
 summary(all_individuals)
@@ -63,22 +62,25 @@ You could then combine the tables using left\_join:
 
 ``` r
 all_individuals_with_their_division <- all_individuals %>% 
-  left_join(by_division, by = c("uniqueID"))
+  left_join(mps_by_division, by = c("uniqueID"))
 ```
 
 ## Where are the bodies buried?
 
-  - all\_individuals. Some of the individuals don’t have a birthdate -
-    only a year. Probably more work could be done to try to reduce this
-    number.
+  - Some of the individuals don’t have a birthdate - only a year.
+    Probably more work could be done to try to reduce this number.
   - Party is slightly confusing ATM. Certain parties, such as the
     nationals, changed their name and this is included as a party change
     for people at that time. It doesn’t make sense, but the alternative
-    requires coming up with a ‘display name’ equivalent for party. Also,
-    at the moment, party is tied to parliament, but that doesn’t
-    necessarily make sense.
-  - by\_division. Sometimes the divisions change name. This is being
-    treated as a different division, but it doesn’t always make sense.
+    requires coming up with a ‘display name’ equivalent for party, and
+    I’ve started doing that, but doing that raises other questions.
+    Also, at the moment, party is tied to parliament, but that doesn’t
+    necessarily make sense. For instance, Malcolm Fraser left the
+    liberals after he left parliament. Similarly if someone changed
+    party while they were out of parliament then I have the date that
+    they joined their new party as the date the rejoined parliment.
+  - Sometimes the divisions change name. This is being treated as a
+    different division, but it doesn’t always make sense.
 
 ## Parties
 
@@ -103,4 +105,5 @@ all_individuals_with_their_division <- all_individuals %>%
 
 ## Sources
 
-  - TBD
+  - The Parliamentary Library in the first instance.
+  - Wikipedia wherever possible.
