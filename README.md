@@ -1,23 +1,75 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# auspol
+# AustralianPoliticians
 
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/RohanAlexander/auspol.svg?branch=master)](https://travis-ci.org/RohanAlexander/auspol)
+status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
 <!-- badges: end -->
 
-`auspol` is an collection of datasets related to Australian politics
-that I put together and kept having to copy from project to project. The
-datasets are:
+`AustralianPoliticians` is an collection of datasets related to
+Australian politicians. The datasets are:
+
+  - all: The main dataset.
+  - by\_division\_mps: Adds information about the division (‘seat’) of
+    the politician.
+  - by\_party. Adds information about the party of the politician.
+  - by\_state\_senators. Adds information about the state that a senator
+    was representing.
+  - list\_prime\_ministers. Whether the politician was prime minister.
+  - uniqueID\_to\_aphID. A correspondence between the uniqueIDs used in
+    these datasets and the IDs used by the Australian Parliament House.
+
+The datasets are up-to-date as of 26 August 2019.
+
+## Installation
+
+You can install this package from GitHub with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("RohanAlexander/AustralianPoliticians")
+```
+
+## Example
+
+This is a example of how to load the data:
+
+``` r
+library(tidyverse)
+
+devtools::install_github("RohanAlexander/AustralianPoliticians")
+
+all_individuals <- AustralianPoliticians::all_individuals %>% as_tibble()
+mps_by_division <- AustralianPoliticians::mps_by_division %>% as_tibble()
+by_party <- AustralianPoliticians::by_party %>% as_tibble()
+senators_by_state <- AustralianPoliticians::senators_by_state %>% as_tibble()
+list_prime_ministers <- AustralianPoliticians::list_prime_ministers %>% as_tibble()
+
+summary(all_individuals)
+```
+
+You could then combine the tables using left\_join:
+
+``` r
+all_individuals_with_their_division <- all_individuals %>% 
+  left_join(mps_by_division, by = c("uniqueID"))
+```
+
+## Dataset details
+
+### all
 
   - all\_individuals. The key dataset. One row per politician, with
     columns: uniqueID, hansardID (for linking to hansard), surname,
     allOtherNames, firstName, commonName, displayName,
     earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate,
     comments, wikipedia, adb.
+
+### bydivision
+
   - mps\_by\_division Adds information about the division (‘seat’) of
     the politician. One row per division-politician, with columns:
     uniqueID, division, state, electionDate, byElection,
@@ -30,40 +82,6 @@ datasets are:
   - list\_prime\_ministers. Adds information about whether the
     politician has been prime minister. One row per politician, with
     columns: uniqueID, wasPrimeMinister.
-
-## Installation
-
-You can install the development version from GitHub with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("RohanAlexander/auspol")
-```
-
-## Example
-
-This is a example of how to load the data:
-
-``` r
-library(tidyverse)
-
-devtools::install_github("RohanAlexander/auspol")
-
-all_individuals <- auspol::all_individuals %>% as_tibble()
-mps_by_division <- auspol::mps_by_division %>% as_tibble()
-by_party <- auspol::by_party %>% as_tibble()
-senators_by_state <- auspol::senators_by_state %>% as_tibble()
-list_prime_ministers <- auspol::list_prime_ministers %>% as_tibble()
-
-summary(all_individuals)
-```
-
-You could then combine the tables using left\_join:
-
-``` r
-all_individuals_with_their_division <- all_individuals %>% 
-  left_join(mps_by_division, by = c("uniqueID"))
-```
 
 ## Where are the bodies buried?
 

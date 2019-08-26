@@ -1,5 +1,5 @@
-Package: auspol
-Title: Provides Datasets About Australian Politics
+Package: AustralianPoliticians
+Title: Provides Datasets About Australian Politicians
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Rohan",
@@ -7,12 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "rohan.alexander@utoronto.ca",
            comment = c(ORCID = "0000-0001-6759-7276"))
-Description: This package provides a variety of datasets related to Australian politics that I commonly copied from project to project. By distributing them using this package, they can hopefully all remain updated to the same extent and reduce time copying and pasting.
+Description: This package provides a variety of datasets related to Australian politicians that I commonly copied from project to project. By distributing them using this package, they can hopefully all remain updated to the same extent and reduce time copying and pasting.
 Depends:
     R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/RohanAlexander/auspol
-BugReports: https://github.com/RohanAlexander/auspol/issues
+URL: https://github.com/RohanAlexander/AustralianPoliticians
+BugReports: https://github.com/RohanAlexander/AustralianPoliticians/issues
 RoxygenNote: 6.1.1
