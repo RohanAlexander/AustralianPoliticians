@@ -24,7 +24,7 @@
 #'  \item{adb}{The Australian Dictionary of Biography link.}
 #'  \item{comments}{Miscellaneous comments.}
 #' }
-"all_individuals"
+"all"
 
 #' Party of each individual
 #'
@@ -40,7 +40,7 @@
 #'	\item{partyChangedName}{Did the party just change its name e.g. the Nationals.}
 #'	\item{partySimplified}{Is there a not completely accurate party name that may be more useful than the strictly correct names.}
 #'	\item{specificDateWasInputted}{A binary for whether accuracy has been imposed on the date, say there was only a month and a year then this would imply a day (1) has been added.}
-#'	\item{comment}{Miscellaneous comments.}
+#'	\item{comments}{Miscellaneous comments.}
 #' }
 "by_party"
 
@@ -61,7 +61,7 @@
 #'	\item{changedSeat}{Was it just that they changed seats?}
 #'	\item{comments}{Miscellaneous comments.}
 #' }
-"mps_by_division"
+"by_division_mps"
 
 
 #' Senators by state
@@ -78,7 +78,7 @@
 #'	\item{section15Selection}{Was the senator appointed, rather than voted?}
 #'	\item{comments}{Miscellaneous comments.}
 #' }
-"senators_by_state"
+"by_state_senators"
 
 #' List of prime ministers
 #'
@@ -90,3 +90,15 @@
 #'	\item{wasPrimeMinister}{A binary indicator as to whether the person was ever prime minister.}
 #' }
 "list_prime_ministers"
+
+#' uniqueID to aphID correspondence
+#'
+#' This is a correspondence between uniqueIDs and the ids used by the Australian parliament house
+#'
+#' @format A data frame with 1776 rows and 3 variables:
+#' \describe{
+#'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+#'	\item{aphID}{The id used by the Australian parliament house.}
+#'	\item{comments}{Miscellaneous comments.}
+#' }
+"uniqueID_to_aphID"

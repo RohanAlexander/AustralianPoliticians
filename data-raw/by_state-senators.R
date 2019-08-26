@@ -1,7 +1,7 @@
 ## code to prepare all_individuals dataset goes here
 library(readr)
 
-senators_by_state <- read_csv("data-raw/senators_by_state.csv",
+by_state_senators <- read_csv("data-raw/by_state-senators.csv",
                         col_names = TRUE,
                         col_types = cols(
                           uniqueID = col_character(),
@@ -13,4 +13,4 @@ senators_by_state <- read_csv("data-raw/senators_by_state.csv",
                           comments = col_character()
                         ))
 
-usethis::use_data(senators_by_state)
+usethis::use_data(by_state_senators)

@@ -1,7 +1,7 @@
 ## code to prepare all_individuals dataset goes here
 library(readr)
 
-mps_by_division <- read_csv("data-raw/mps_by_division.csv",
+by_division_mps <- read_csv("data-raw/by_division-mps.csv",
                         col_names = TRUE,
                         col_types = cols(
                           uniqueID = col_character(),
@@ -15,4 +15,4 @@ mps_by_division <- read_csv("data-raw/mps_by_division.csv",
                           comments = col_character()
                         ))
 
-usethis::use_data(mps_by_division)
+usethis::use_data(by_division_mps)

@@ -1,7 +1,7 @@
 ## code to prepare all_individuals dataset goes here
 library(readr)
 
-all_individuals <- read_csv("data-raw/all_individuals.csv",
+all <- read_csv("data-raw/all.csv",
                         col_names = TRUE,
                         col_types = cols(
                           uniqueID = col_character(),
@@ -23,4 +23,4 @@ all_individuals <- read_csv("data-raw/all_individuals.csv",
                           comments = col_character()
                         ))
 
-usethis::use_data(all_individuals)
+usethis::use_data(all)

@@ -1,7 +1,7 @@
 ## code to prepare by_party dataset goes here
 library(readr)
 
-by_party <- read_csv("data-raw/all_by_party.csv",
+by_party <- read_csv("data-raw/by_party.csv",
                      col_names = TRUE,
                      col_types = cols(
                        uniqueID = col_character(),
@@ -12,7 +12,7 @@ by_party <- read_csv("data-raw/all_by_party.csv",
                        partyChangedName = col_integer(),
                        partySimplified = col_character(),
                        specificDateWasInputted = col_integer(),
-                       comment = col_character()
+                       comments = col_character()
                      ))
 
 usethis::use_data(by_party)

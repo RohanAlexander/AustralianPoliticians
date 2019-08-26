@@ -14,7 +14,7 @@
 \item{partyChangedName}{Did the party just change its name e.g. the Nationals.}
 \item{partySimplified}{Is there a not completely accurate party name that may be more useful than the strictly correct names.}
 \item{specificDateWasInputted}{A binary for whether accuracy has been imposed on the date, say there was only a month and a year then this would imply a day (1) has been added.}
-\item{comment}{Miscellaneous comments.}
+\item{comments}{Miscellaneous comments.}
 }}
 \usage{
 by_party
