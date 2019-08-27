@@ -18,14 +18,14 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
 <!-- badges: end -->
 
-`AustralianPoliticians` is an collection of datasets related to Australian politicians. The datasets are:
+`AustralianPoliticians` is a collection of datasets related to Australian politicians. The datasets are:
 
 * all: The main dataset. 
 * by_division_mps: Adds information about the division ('seat') of the politician. 
-* by_party. Adds information about the party of the politician. 
-* by_state_senators. Adds information about the state that a senator was representing.
-* list_prime_ministers. Whether the politician was prime minister. 
-* uniqueID_to_aphID. A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
+* by_party: Adds information about the party of the politician. 
+* by_state_senators: Adds information about the state that a senator was representing.
+* list_prime_ministers: Whether the politician was prime minister. 
+* uniqueID_to_aphID: A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
 
 The datasets are up-to-date as of 26 August 2019.
 
@@ -49,51 +49,91 @@ library(tidyverse)
 
 devtools::install_github("RohanAlexander/AustralianPoliticians")
 
-all_individuals <- AustralianPoliticians::all_individuals %>% as_tibble()
-mps_by_division <- AustralianPoliticians::mps_by_division %>% as_tibble()
+all <- AustralianPoliticians::all %>% as_tibble()
+by_division_mps <- AustralianPoliticians::by_division_mps %>% as_tibble()
 by_party <- AustralianPoliticians::by_party %>% as_tibble()
-senators_by_state <- AustralianPoliticians::senators_by_state %>% as_tibble()
+by_state_senators <- AustralianPoliticians::by_state_senators %>% as_tibble()
 list_prime_ministers <- AustralianPoliticians::list_prime_ministers %>% as_tibble()
-
-summary(all_individuals)
+uniqueID_to_aphID <- AustralianPoliticians::uniqueID_to_aphID %>% as_tibble()
 ```
 
 You could then combine the tables using left_join:
 
 ```{r combinetables, eval=FALSE, echo=TRUE}
-all_individuals_with_their_division <- all_individuals %>% 
-  left_join(mps_by_division, by = c("uniqueID"))
+all_individuals_with_their_division <- all %>% 
+  left_join(by_division_mps, by = c("uniqueID"))
 ```
 
 
 ## Dataset details
 
 ### all
-* all_individuals. The key dataset. One row per politician, with columns: uniqueID, hansardID (for linking to hansard), surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate, comments, wikipedia, adb.
+This is the main dataset and contains one row per politician, with columns: uniqueID, surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate, member, senator, wikipedia, adb, and comments.
 
-### bydivision
-* mps_by_division Adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID, division, state, electionDate, byElection, reasonCeasedToBeMember, changedSeat, ceasedToBeMemberDate, Comment.
-* senators_by_state. Adds information about the state that a senator was representing.
-* by_party. Adds information about the party of the politician. One row per party-politician, with columns: uniqueID, party, partyFrom, partyTo, comment.
-* list_prime_ministers. Adds information about whether the politician has been prime minister. One row per politician, with columns: uniqueID, wasPrimeMinister.
+uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively. 
 
-## Where are the bodies buried?
+commonName is used to highlight the name that the politician tended to be known as e.g. Ted instead of Edward This is used in displayName which is a politicians surname and their common name (if they had one) or first name e.g. Abbott, Richard. In cases where this would not be unique, e.g. Francis Baker, an additional name has been added.
 
-* Some of the individuals don't have a birthdate - only a year. Probably more work could be done to try to reduce this number.
-* Party is slightly confusing ATM. Certain parties, such as the nationals, changed their name and this is included as a party change for people at that time. It doesn't make sense, but the alternative requires coming up with a 'display name' equivalent for party, and I've started doing that, but doing that raises other questions. Also, at the moment, party is tied to parliament, but that doesn't necessarily make sense. For instance, Malcolm Fraser left the liberals after he left parliament. Similarly if someone changed party while they were out of parliament then I have the date that they joined their new party as the date the rejoined parliment.
-* Sometimes the divisions change name. This is being treated as a different division, but it doesn't always make sense.
+earlierOrLaterNames is mostly used to keep track of women changing their names at marriage. Similarly, title is mostly used to keep track of 'Dr', but both have been used inconsistently and should be only used sparingly.
 
-## Parties
+Some politicians don't have a complete birth date, and instead only have a year of birth. In these cases their entry for birthDate will be empty, but they will have a birthYear. All death dates are complete, but in the case of one politician -- John William Croft -- this has been inputted, as the circumstances and timing (even year) of his death are unknown.
 
-* Changed from the Country Party to the National Country Party on 3 May 1975 according to http://nla.gov.au/nla.news-article110636121. Changed from National Country Party to National Party of Australia on 17 October 1982 according to http://nla.gov.au/nla.news-article116476081. Changed from National Party of Australai to The Nationals on 11 October 2003 according to the party website.
-* Nick Xenophon Team changed to Centre Alliance on 10 April 2018, according to ABC news reports.
+member and senator are binary indicator variables used to signify whether the politician was in the lower or upper house. Most politicians are only in one or the other, but some were in both. One politician in the dataset was neither a senator nor an MP - Heather Elaine Hill. She remains in the dataset because she was elected to the senate, and the need for this dataset to exactly match the AustralianElections one), however her eligibility was challenged and her election was invalidated, so she was never a senator. 
+
+
+### by_division_mps
+This dataset adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID, division, state, byElection, from, to, reasonCeasedToBeMember, changedSeat, and comments.
+
+Certain divisions change name. Sometimes this is minor, for instance Kingsford-Smith to Kingsford Smith, and sometimes it is total. In all cases this is being treated as change in division -- the politician is treated as finishing with one division and moving to another -- but changedSeat can be used to identify these cases and adjust for them if necessary.
+
+byElection is a binary indicator variable as to whether the politician was entering the seat following a by-election. 
+
+changedSeat is a binary indicator variable as to whether the politician left a division because they were changing the division, as opposed to losing an election or retiring.
+
+
+### by_party
+This dataset adds information about the party of the politician. One row per party-politician, with columns: uniqueID, partyAbbreviationParlHandbook, partyNameParlHandbook, partyFromParlHandbook, partyToParlHandbook, partyChangedName, partySimplified, specificDateWasInputted, and comments.
+
+Party can be a little confusing in cases where a politician changed party. In general, in this dataset, the to/from dates are set-up so that when a politician is in parliament they will have the correct party. However the dataset should not be used to say anything about when they are out of parliament. For instance, some politicians lost their seat, changed party, and then regained a seat in parliament. The dataset does not know when they changed party while they were out of parliament, and it assumes that they changed party either at the same time that they lost their seat or at the same time as they re-gained a seat. Similarly, there are plenty of cases where a politician has ceased being a member after they leave parliament, for instance, Malcolm Fraser left the Liberals. Again, that is not reflected in the dataset.
+
+Certain parties, such as the Nationals, changed their name at various points in time. This is included as a party change for people at that time in partyAbbreviationParlHandbook	and partyNameParlHandbook. However, partySimplified abstracts away from that.
+
+Party name changes:
+
+* The Country Party changed to the National Country Party on 3 May 1975 according to http://nla.gov.au/nla.news-article110636121. It then changed from the National Country Party to the National Party of Australia on 17 October 1982 according to http://nla.gov.au/nla.news-article116476081. And finally, it changed from the National Party of Australia to The Nationals on 11 October 2003 according to the party website.
+* The Nick Xenophon Team changed to Centre Alliance on 10 April 2018, according to ABC news reports.
+
+
+### by_state_senators
+This dataset adds information about the state that a senator was representing. It is fairly similar to by_division_mps, expect that it also has section15Selection. This is a binary indicator variable and indicates whether the senator has been appointed rather than elected.
+
+
+### list_prime_ministers
+This dataset adds information about whether the politician has been prime minister. One row per politician, with columns: uniqueID, wasPrimeMinister.
+
+
+### uniqueID_to_aphID
+This dataset adds a correspondence between the unique identifiers used in these datasets and the identifier used by the Australian Parliament House on its website. the main issue with the APH identifier is that it is not clear who it is referring to without looking it up. Additionally, in certain cases it changes from time to time, and it is easy to accidently change the format by opening it in Excel.
+
+
+
+
+
 
 ## TODO
 
-* all_individuals. The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released.
-* The Title field within individuals is fairly dodgy. Ned to go back through and probably seperate out all drs and other or something. Also there is plenty that should by there that isn't in there.
+* all: The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released. Also deathDate needs to be checked, and title needs to modified.
+* by_division_mps: Need to adjust for the by-elections due to the citizenship issues. For instance, the entry for Alexander1951, shows John Alexander representing Bennelong continuously since 21 August 2010 even though he resigned and then won the seat in 2017. Should also probably check the dates.
+* list_prime_ministers: Need to add the dates.
+
+
+## Roadmap
+
+* Add dataset of ministers with dates.
+* Add information about birthplace and education to all.
+* Add information about relationships, for instance father-son, etc to all.
+
 
 ## Sources
 
-* The Parliamentary Library in the first instance.
-* Wikipedia wherever possible.
+In the first instance, the Parliamentary Handbook was the main source of information. This was augmented with information from Wikipedia, the Australian Dictionary of Biography, and the Senate Biographies wherever possible. Limited information was obtained from other sources, such as state parliaments and newspapers (via Trove), and these have generally been specified in the comments. The uniqueID_to_aphID dataset was primarily drawn from a dataset put together by Patrick Leslie, but it was checked against a modern dataset from [Open Australia](https://github.com/openaustralia/openaustralia-parser/blob/master/data/people.csv), and Tim Sherratt's Historic Hansard records for the [Reps](http://historichansard.net/hofreps/people/) and [Senate](http://historichansard.net/senate/people/).
