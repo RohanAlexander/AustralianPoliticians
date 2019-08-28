@@ -139,7 +139,6 @@ This dataset adds a correspondence between the unique identifiers used in these 
 ## TODO
 
 * all: The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released. Also deathDate needs to be checked, and title needs to modified.
-* by_division_mps: Need to adjust for the by-elections due to the citizenship issues. For instance, the entry for Alexander1951, shows John Alexander representing Bennelong continuously since 21 August 2010 even though he resigned and then won the seat in 2017. Should also probably check the dates.
 * list_prime_ministers: Need to add the dates.
 
 

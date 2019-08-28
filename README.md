@@ -201,11 +201,6 @@ accidently change the format by opening it in Excel.
     their birthdays haven’t been published yet. This needs to be updated
     as soon as the birthdays are released. Also deathDate needs to be
     checked, and title needs to modified.
-  - by\_division\_mps: Need to adjust for the by-elections due to the
-    citizenship issues. For instance, the entry for Alexander1951, shows
-    John Alexander representing Bennelong continuously since 21 August
-    2010 even though he resigned and then won the seat in 2017. Should
-    also probably check the dates.
   - list\_prime\_ministers: Need to add the dates.
 
 ## Roadmap
