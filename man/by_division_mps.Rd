@@ -12,7 +12,7 @@
 \item{byElection}{Whether the member was elected in a by-election.}
 \item{from}{When did the member start representing that division.}
 \item{to}{When did the member finish representing that division.}
-\item{reasonCeasedToBeMember}{Why did they stop?}
+\item{reasonCeased}{Why did they stop?}
 \item{changedSeat}{Was it just that they changed seats?}
 \item{comments}{Miscellaneous comments.}
 }}

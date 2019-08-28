@@ -10,7 +10,7 @@ by_division_mps <- read_csv("data-raw/by_division-mps.csv",
                           byElection = col_character(),
                           from = col_date(format = ""),
                           to = col_date(format = ""),
-                          reasonCeasedToBeMember = col_character(),
+                          reasonCeased = col_character(),
                           changedSeat = col_integer(),
                           comments = col_character()
                         ))

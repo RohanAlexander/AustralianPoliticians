@@ -22,6 +22,8 @@ Australian politicians. The datasets are:
   - uniqueID\_to\_aphID: A correspondence between the uniqueIDs used in
     these datasets and the IDs used by the Australian Parliament House.
 
+![alt text](man/figures/schema.png)
+
 The datasets are up-to-date as of 26 August 2019.
 
 ## Installation
@@ -66,6 +68,8 @@ columns: uniqueID, surname, allOtherNames, firstName, commonName,
 displayName, earlierOrLaterNames, title, gender, birthDate, birthYear,
 deathDate, member, senator, wikipedia, adb, and comments.
 
+![alt text](man/figures/all.png)
+
 uniqueID is usually the surname of the politician and the year that they
 were born, e.g. Abbott1859. In certain cases this is not enough to
 uniquely identify them and then we add the first name,
@@ -107,6 +111,8 @@ politician. One row per division-politician, with columns: uniqueID,
 division, state, byElection, from, to, reasonCeasedToBeMember,
 changedSeat, and comments.
 
+![alt text](man/figures/by_division_mps.png)
+
 Certain divisions change name. Sometimes this is minor, for instance
 Kingsford-Smith to Kingsford Smith, and sometimes it is total. In all
 cases this is being treated as change in division – the politician is
@@ -128,6 +134,8 @@ per party-politician, with columns: uniqueID,
 partyAbbreviationParlHandbook, partyNameParlHandbook,
 partyFromParlHandbook, partyToParlHandbook, partyChangedName,
 partySimplified, specificDateWasInputted, and comments.
+
+![alt text](man/figures/by_party.png)
 
 Party can be a little confusing in cases where a politician changed
 party. In general, in this dataset, the to/from dates are set-up so that
@@ -166,11 +174,15 @@ representing. It is fairly similar to by\_division\_mps, expect that it
 also has section15Selection. This is a binary indicator variable and
 indicates whether the senator has been appointed rather than elected.
 
+![alt text](man/figures/by_state_senators.png)
+
 ### list\_prime\_ministers
 
 This dataset adds information about whether the politician has been
 prime minister. One row per politician, with columns: uniqueID,
 wasPrimeMinister.
+
+![alt text](man/figures/list_prime_ministers.png)
 
 ### uniqueID\_to\_aphID
 
@@ -180,6 +192,8 @@ House on its website. the main issue with the APH identifier is that it
 is not clear who it is referring to without looking it up. Additionally,
 in certain cases it changes from time to time, and it is easy to
 accidently change the format by opening it in Excel.
+
+![alt text](man/figures/uniqueID_to_aphID.png)
 
 ## TODO
 
