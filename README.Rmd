@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# AustralianPoliticians
+# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" width="240px" align="right" /> 
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)

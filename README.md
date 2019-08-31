@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# AustralianPoliticians
+# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" width="240px" align="right" />
 
 <!-- badges: start -->
 
