@@ -6,20 +6,21 @@
 #'
 #' @format A data frame with 1,780 rows and 17 variables that is current as of 24 August 2019:
 #' \describe{
-#'  \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+#'  \item{uniqueID}{uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively.}
 #'  \item{surname}{The surname of the politician.}
 #'  \item{allOtherNames}{The other names of the politician.}
 #'  \item{firstName}{The first name of the politician.}
-#'  \item{commonName}{The common name of the politician, for instance, Ted instead of Edward.}
+#'  \item{commonName}{commonName is used to highlight the name that the politician tended to be known as e.g. Ted instead of Edward This is used in displayName which is a politicians surname and their common name (if they had one) or first name e.g. Abbott, Richard. In cases where this would not be unique, e.g. Francis Baker, an additional name has been added.}
 #'  \item{displayName}{The combination of common name (when it exists), and first name otherwise, with surname.}
-#'  \item{earlierOrLaterNames}{Just in case they changed their names.}
+#'  \item{earlierOrLaterNames}{earlierOrLaterNames is mostly used to keep track of women changing their names at marriage. Similarly, title is mostly used to keep track of 'Dr', but both have been used inconsistently and should be only used sparingly.}
 #'  \item{title}{Whether the person has a title.}
 #'  \item{gender}{What gender is the person.}
 #'  \item{birthDate}{What is their birthdate?}
-#'  \item{birthYear}{In some cases the specific birthday isn't known, but the birth year is.}
-#'  \item{deathDate}{What date did they die?}
-#'  \item{member}{Where they a member of the house of representatives?}
-#'  \item{senator}{Where they a senator?}
+#'  \item{birthYear}{Some politicians don't have a complete birth date, and instead only have a year of birth. In these cases their entry for birthDate will be empty, but they will have a birthYear.}
+#'  \item{deathDate}{All death dates are complete, but in the case of one politician -- John William Croft -- this has been inputted, as the circumstances and timing (even year) of his death are unknown.}
+#'  \item{member}{member and senator are binary indicator variables used to signify whether the politician was in the lower or upper house. Most politicians are only in one or the other, but some were in both.}
+#'  \item{senator}{One politician in the dataset was neither a senator nor an MP - Heather Elaine Hill. She remains in the dataset because she was elected to the senate, and the need for this dataset to exactly match the AustralianElections one), however her eligibility was challenged and her election was invalidated, so she was never a senator.}
+#'  \item{wikidataID}{The wikidata ID.}
 #'  \item{wikipedia}{The wikipedia link.}
 #'  \item{adb}{The Australian Dictionary of Biography link.}
 #'  \item{comments}{Miscellaneous comments.}
@@ -33,14 +34,14 @@
 #' @format A data frame with 2,257 rows and 9 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-#'	\item{partyAbbreviationParlHandbook}{The party abbreviation that is used by the parliamentary handbook.}
-#'	\item{partyNameParlHandbook}{The party name that is used by the parliamentary handbook.}
-#'	\item{partyFromParlHandbook}{The date that the person joined the party. This is empty if it would be the same as when they started being a member or senator.}
-#'	\item{partyToParlHandbook}{The date that the person left the party. This is empty if it would be the same as when they stopped being a member or senator.}
+#'	\item{partyAbbrev}{The party abbreviation that is used by the parliamentary handbook.}
+#'	\item{partyName}{The party name that is used by the parliamentary handbook.}
+#'	\item{partyFrom}{The date that the person joined the party. This is empty if it would be the same as when they started being a member or senator.}
+#'	\item{partyTo}{The date that the person left the party. This is empty if it would be the same as when they stopped being a member or senator.}
 #'	\item{partyChangedName}{Did the party just change its name e.g. the Nationals.}
-#'	\item{partySimplified}{Is there a not completely accurate party name that may be more useful than the strictly correct names.}
-#'	\item{specificDateWasInputted}{A binary for whether accuracy has been imposed on the date, say there was only a month and a year then this would imply a day (1) has been added.}
-#'	\item{comments}{Miscellaneous comments.}
+#'	\item{partySimplifiedName}{Is there a not completely accurate party name that may be more useful than the strictly correct names.}
+#'	\item{partySpecificDateInputted}{A binary for whether accuracy has been imposed on the date, say there was only a month and a year then this would imply a day (1) has been added.}
+#'	\item{partyComments}{Miscellaneous comments.}
 #' }
 "by_party"
 
@@ -52,14 +53,14 @@
 #' @format A data frame with 1,418 rows and 9 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-#'	\item{division}{The name of the division.}
-#'	\item{state}{The state of the division.}
-#'	\item{byElection}{Whether the member was elected in a by-election.}
-#'	\item{from}{When did the member start representing that division.}
-#'	\item{to}{When did the member finish representing that division.}
-#'	\item{reasonCeased}{Why did they stop?}
-#'	\item{changedSeat}{Was it just that they changed seats?}
-#'	\item{comments}{Miscellaneous comments.}
+#'	\item{mpsDivision}{The name of the division.}
+#'	\item{mpsState}{The state of the division.}
+#'	\item{mpsEnteredAtByElection}{Whether the member was elected in a by-election.}
+#'	\item{mpsFrom}{When did the member start representing that division.}
+#'	\item{mpsTo}{When did the member finish representing that division.}
+#'	\item{mpsEndReason}{Why did they stop?}
+#'	\item{mpsChangedSeat}{Was it just that they changed seats?}
+#'	\item{mpsComments}{Miscellaneous comments.}
 #' }
 "by_division_mps"
 
@@ -71,14 +72,15 @@
 #' @format A data frame with 684 rows and 7 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-#'	\item{state}{The state that they represented.}
-#'	\item{from}{When they were elected.}
-#'	\item{to}{Their last day of being a senator.}
-#'	\item{reasonCeasedToBeSenator}{Why did they stop being a senator?}
-#'	\item{section15Selection}{Was the senator appointed, rather than voted?}
-#'	\item{comments}{Miscellaneous comments.}
+#'	\item{senatorsState}{The state that they represented.}
+#'	\item{senatorsFrom}{When they were elected.}
+#'	\item{senatorsTo}{Their last day of being a senator.}
+#'	\item{senatorsEndReason}{Why did they stop being a senator?}
+#'	\item{senatorsSec15Sel}{Was the senator appointed, rather than voted?}
+#'	\item{senatorsComments}{Miscellaneous comments.}
 #' }
 "by_state_senators"
+
 
 #' List of prime ministers
 #'
@@ -99,6 +101,6 @@
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 #'	\item{aphID}{The id used by the Australian parliament house.}
-#'	\item{comments}{Miscellaneous comments.}
+#'	\item{idsComments}{Miscellaneous comments.}
 #' }
 "uniqueID_to_aphID"

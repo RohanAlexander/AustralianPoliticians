@@ -7,12 +7,12 @@
 \format{A data frame with 684 rows and 7 variables:
 \describe{
 \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-\item{state}{The state that they represented.}
-\item{from}{When they were elected.}
-\item{to}{Their last day of being a senator.}
-\item{reasonCeasedToBeSenator}{Why did they stop being a senator?}
-\item{section15Selection}{Was the senator appointed, rather than voted?}
-\item{comments}{Miscellaneous comments.}
+\item{senatorsState}{The state that they represented.}
+\item{senatorsFrom}{When they were elected.}
+\item{senatorsTo}{Their last day of being a senator.}
+\item{senatorsEndReason}{Why did they stop being a senator?}
+\item{senatorsSec15Sel}{Was the senator appointed, rather than voted?}
+\item{senatorsComments}{Miscellaneous comments.}
 }}
 \usage{
 by_state_senators

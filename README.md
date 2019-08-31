@@ -24,7 +24,7 @@ Australian politicians. The datasets are:
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 26 August 2019.
+The datasets are up-to-date as of 30 August 2019.
 
 ## Installation
 
@@ -66,9 +66,9 @@ all_individuals_with_their_division <- all %>%
 This is the main dataset and contains one row per politician, with
 columns: uniqueID, surname, allOtherNames, firstName, commonName,
 displayName, earlierOrLaterNames, title, gender, birthDate, birthYear,
-deathDate, member, senator, wikipedia, adb, and comments.
+deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
 
-![alt text](man/figures/all.png)
+<img src="man/figures/all.png" width="1138px" height="111px" />
 
 uniqueID is usually the surname of the politician and the year that they
 were born, e.g. Abbott1859. In certain cases this is not enough to
@@ -107,11 +107,12 @@ so she was never a senator.
 ### by\_division\_mps
 
 This dataset adds information about the division (‘seat’) of the
-politician. One row per division-politician, with columns: uniqueID,
-division, state, byElection, from, to, reasonCeasedToBeMember,
-changedSeat, and comments.
+politician. One row per division-politician, with columns: uniqueID;
+mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo;
+mpsEndReason; mpsChangedSeat; and
+mpsComments.
 
-![alt text](man/figures/by_division_mps.png)
+<img src="man/figures/by_division_mps.png" width="1138px" height="110px" />
 
 Certain divisions change name. Sometimes this is minor, for instance
 Kingsford-Smith to Kingsford Smith, and sometimes it is total. In all
@@ -130,12 +131,11 @@ losing an election or retiring.
 ### by\_party
 
 This dataset adds information about the party of the politician. One row
-per party-politician, with columns: uniqueID,
-partyAbbreviationParlHandbook, partyNameParlHandbook,
-partyFromParlHandbook, partyToParlHandbook, partyChangedName,
-partySimplified, specificDateWasInputted, and comments.
+per party-politician, with columns: uniqueID; partyAbbrev; partyName;
+partyFrom; partyTo; partyChangedName; partySimplifiedName;
+partySpecificDateInputted; and partyComments.
 
-![alt text](man/figures/by_party.png)
+<img src="man/figures/by_party.png" width="1590/2px" height="111px" />
 
 Party can be a little confusing in cases where a politician changed
 party. In general, in this dataset, the to/from dates are set-up so that
@@ -170,11 +170,15 @@ Party name changes:
 ### by\_state\_senators
 
 This dataset adds information about the state that a senator was
-representing. It is fairly similar to by\_division\_mps, expect that it
-also has section15Selection. This is a binary indicator variable and
-indicates whether the senator has been appointed rather than elected.
+representing. The variables are: uniqueID; senatorsState; senatorsFrom;
+senatorsTo; senatorsEndReason; senatorsSec15Sel; and
+senatorsComments.
 
-![alt text](man/figures/by_state_senators.png)
+<img src="man/figures/by_state_senators.png" width="1872/2px" height="114px" />
+
+This dataset is fairly similar to by\_division\_mps, expect that it also
+has senatorsSec15Sel This is a binary indicator variable and indicates
+whether the senator has been appointed rather than elected.
 
 ### list\_prime\_ministers
 
@@ -182,7 +186,7 @@ This dataset adds information about whether the politician has been
 prime minister. One row per politician, with columns: uniqueID,
 wasPrimeMinister.
 
-![alt text](man/figures/list_prime_ministers.png)
+<img src="man/figures/list_prime_ministers.png" width="186px" height="129px" />
 
 ### uniqueID\_to\_aphID
 
@@ -191,9 +195,10 @@ in these datasets and the identifier used by the Australian Parliament
 House on its website. the main issue with the APH identifier is that it
 is not clear who it is referring to without looking it up. Additionally,
 in certain cases it changes from time to time, and it is easy to
-accidently change the format by opening it in Excel.
+accidently change the format by opening it in
+Excel.
 
-![alt text](man/figures/uniqueID_to_aphID.png)
+<img src="man/figures/uniqueID_to_aphID.png" width="273px" height="107px" />
 
 ## TODO
 
@@ -224,3 +229,25 @@ Australia](https://github.com/openaustralia/openaustralia-parser/blob/master/dat
 and Tim Sherratt’s Historic Hansard records for the
 [Reps](http://historichansard.net/hofreps/people/) and
 [Senate](http://historichansard.net/senate/people/).
+
+## Acknowledgements
+
+Thank you to Edward Howlett, Kelly Lyons, Monica Alexander, Sharla
+Gelfand, and Simon Munzert, for their help.
+
+## Citation
+
+If you use `AustralianPoliticians`, please consider citing:
+
+Alexander, Rohan. (2019). AustralianPoliticians: Datasets on Australian
+Politicians. Source:
+<https://github.com/RohanAlexander/AustralianPoliticians>.
+
+## Author information
+
+**Rohan Alexander** (corresponding author and repository maintainer)  
+University of Toronto  
+Information Sciences  
+140 St George St  
+Toronto, ON, Canada  
+Email: <rohan.alexander@utoronto.ca>

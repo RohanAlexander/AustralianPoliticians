@@ -6,7 +6,7 @@ uniqueID_to_aphID <- read_csv("data-raw/uniqueID_to_aphID.csv",
                                  col_types = cols(
                                    uniqueID = col_character(),
                                    aphID = col_character(),
-                                   comments = col_character()
+                                   idsComments = col_character()
                                    ))
 
 usethis::use_data(uniqueID_to_aphID)

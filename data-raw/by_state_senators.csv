@@ -1,4 +1,4 @@
-uniqueID,state,from,to,reasonCeasedToBeSenator,section15Selection,comments
+uniqueID,senatorsState,senatorsFrom,senatorsTo,senatorsEndReason,senatorsSec15Sel,senatorsComments
 Abbott1859,VIC,1928-12-18,1929-06-30,retired,1,
 Abbott1869,NSW,1925-11-14,1929-06-30,defeated,0,
 Abbott1877,NSW,1935-07-01,1941-06-30,defeated,0,

@@ -8,7 +8,7 @@
 \describe{
 \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 \item{aphID}{The id used by the Australian parliament house.}
-\item{comments}{Miscellaneous comments.}
+\item{idsComments}{Miscellaneous comments.}
 }}
 \usage{
 uniqueID_to_aphID

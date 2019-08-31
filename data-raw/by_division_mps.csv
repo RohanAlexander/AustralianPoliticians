@@ -1,4 +1,4 @@
-uniqueID,division,state,byElection,from,to,reasonCeased,changedSeat,comments
+uniqueID,mpsDivision,mpsState,mpsEnteredAtByElection,mpsFrom,mpsTo,mpsEndReason,mpsChangedSeat,mpsComments
 Abbott1869,New England,NSW,No,1913-05-31,1919-11-03,Retired,,
 Abbott1886,Gwydir,NSW,No,1925-11-14,1929-10-12,Defeated,,
 Abbott1886,Gwydir,NSW,No,1931-12-19,1937-03-28,Resigned,,
@@ -969,8 +969,7 @@ McNamara1964,Dobell,NSW,No,2013-09-07,2016-07-02,Defeated,,
 McNeill1868,Wannon,VIC,No,1922-12-16,1925-11-14,Defeated,,
 McNeill1868,Wannon,VIC,No,1929-10-12,1931-12-19,Defeated,,
 McNeill1921,Canning,WA,No,1961-12-09,1963-11-30,Defeated,,
-McNicoll1877,Goldstein,VIC,No,1984-12-01,1990-02-19,Retired,,
-McNicoll1877,Werriwa,NSW,No,1931-12-19,1934-08-02,Resigned,,
+McNicoll1877,Werriwa,NSW,No,1931-12-19,1934-09-14,Resigned,,
 McTiernan1892,Parkes,NSW,No,1929-10-12,1930-12-19,Resigned,,
 McVeigh1930,Darling Downs,QLD,No,1972-12-02,1984-12-01,Until elected for Groom,1,
 McVeigh1930,Groom,QLD,No,1984-12-01,1988-02-29,Resigned,,
