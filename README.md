@@ -235,6 +235,13 @@ and Tim Sherratt’s Historic Hansard records for the
 Thank you to Edward Howlett, Kelly Lyons, Monica Alexander, Sharla
 Gelfand, and Simon Munzert, for their help.
 
+The icon of parliaments used in the hex sticker was made by
+<a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+from
+<a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a>
+
+</div>
+
 ## Citation
 
 If you use `AustralianPoliticians`, please consider citing:

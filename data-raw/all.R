@@ -1,5 +1,7 @@
 ## code to prepare all_individuals dataset goes here
+library(lubridate)
 library(readr)
+library(tidyverse)
 
 all <- read_csv("data-raw/all.csv",
                         col_names = TRUE,
@@ -23,5 +25,10 @@ all <- read_csv("data-raw/all.csv",
                           adb = col_character(),
                           comments = col_character()
                         ))
+
+all <- all %>%
+  mutate(birthYear = if_else(is.na(birthYear), year(birthDate), as.double(birthYear)),
+         birthYear = as.integer(birthYear))
+
 
 usethis::use_data(all)
