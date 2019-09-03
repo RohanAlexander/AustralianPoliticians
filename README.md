@@ -12,19 +12,22 @@ status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=ma
 `AustralianPoliticians` is a collection of datasets related to
 Australian politicians. The datasets are:
 
-  - all: The main dataset.
-  - by\_division\_mps: Adds information about the division (‘seat’) of
-    the politician.
-  - by\_party: Adds information about the party of the politician.
-  - by\_state\_senators: Adds information about the state that a senator
-    was representing.
-  - list\_prime\_ministers: Whether the politician was prime minister.
-  - uniqueID\_to\_aphID: A correspondence between the uniqueIDs used in
-    these datasets and the IDs used by the Australian Parliament House.
+  - **all.rda**: The main dataset.
+  - **by\_division\_mps.rda**: Adds information about the division
+    (‘seat’) of the politician.
+  - **by\_party.rda**: Adds information about the party of the
+    politician.
+  - **by\_state\_senators.rda**: Adds information about the state that a
+    senator was representing.
+  - **list\_prime\_ministers.rda**: Whether the politician was prime
+    minister.
+  - **uniqueID\_to\_aphID.rda**: A correspondence between the uniqueIDs
+    used in these datasets and the IDs used by the Australian Parliament
+    House.
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 30 August 2019.
+The datasets are up-to-date as of 1 September 2019.
 
 ## Installation
 
@@ -61,7 +64,7 @@ all_individuals_with_their_division <- all %>%
 
 ## Dataset details
 
-### all
+### all.rda
 
 This is the main dataset and contains one row per politician, with
 columns: uniqueID, surname, allOtherNames, firstName, commonName,
@@ -104,7 +107,7 @@ need for this dataset to exactly match the AustralianElections one),
 however her eligibility was challenged and her election was invalidated,
 so she was never a senator.
 
-### by\_division\_mps
+### by\_division\_mps.rda
 
 This dataset adds information about the division (‘seat’) of the
 politician. One row per division-politician, with columns: uniqueID;
@@ -128,7 +131,7 @@ changedSeat is a binary indicator variable as to whether the politician
 left a division because they were changing the division, as opposed to
 losing an election or retiring.
 
-### by\_party
+### by\_party.rda
 
 This dataset adds information about the party of the politician. One row
 per party-politician, with columns: uniqueID; partyAbbrev; partyName;
@@ -167,7 +170,7 @@ Party name changes:
   - The Nick Xenophon Team changed to Centre Alliance on 10 April 2018,
     according to ABC news reports.
 
-### by\_state\_senators
+### by\_state\_senators.rda
 
 This dataset adds information about the state that a senator was
 representing. The variables are: uniqueID; senatorsState; senatorsFrom;
@@ -180,7 +183,7 @@ This dataset is fairly similar to by\_division\_mps, expect that it also
 has senatorsSec15Sel This is a binary indicator variable and indicates
 whether the senator has been appointed rather than elected.
 
-### list\_prime\_ministers
+### list\_prime\_ministers.rda
 
 This dataset adds information about whether the politician has been
 prime minister. One row per politician, with columns: uniqueID,
@@ -188,7 +191,7 @@ wasPrimeMinister.
 
 <img src="man/figures/list_prime_ministers.png" width="186px" height="129px" />
 
-### uniqueID\_to\_aphID
+### uniqueID\_to\_aphID.rda
 
 This dataset adds a correspondence between the unique identifiers used
 in these datasets and the identifier used by the Australian Parliament
@@ -202,18 +205,18 @@ Excel.
 
 ## TODO
 
-  - all: The most recent entrants have incomplete uniqueIDs because
+  - all.rda: The most recent entrants have incomplete uniqueIDs because
     their birthdays haven’t been published yet. This needs to be updated
-    as soon as the birthdays are released. Also deathDate needs to be
-    checked, and title needs to modified.
+    as soon as the birthdays are released.
+  - all.rda: Need to go through and update the the titles fields - it’s
+    very inconsistent.
   - list\_prime\_ministers: Need to add the dates.
 
 ## Roadmap
 
   - Add dataset of ministers with dates.
-  - Add information about birthplace and education to all.
-  - Add information about relationships, for instance father-son, etc to
-    all.
+  - Add information about birthplace and education.
+  - Add information about relationships, for instance father-son, etc.
 
 ## Sources
 

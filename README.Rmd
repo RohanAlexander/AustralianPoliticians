@@ -20,16 +20,16 @@ knitr::opts_chunk$set(
 
 `AustralianPoliticians` is a collection of datasets related to Australian politicians. The datasets are:
 
-* all: The main dataset. 
-* by_division_mps: Adds information about the division ('seat') of the politician. 
-* by_party: Adds information about the party of the politician. 
-* by_state_senators: Adds information about the state that a senator was representing.
-* list_prime_ministers: Whether the politician was prime minister. 
-* uniqueID_to_aphID: A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
+* **all.rda**: The main dataset. 
+* **by_division_mps.rda**: Adds information about the division ('seat') of the politician. 
+* **by_party.rda**: Adds information about the party of the politician. 
+* **by_state_senators.rda**: Adds information about the state that a senator was representing.
+* **list_prime_ministers.rda**: Whether the politician was prime minister. 
+* **uniqueID_to_aphID.rda**: A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 30 August 2019.
+The datasets are up-to-date as of 1 September 2019.
 
 
 ## Installation
@@ -69,7 +69,7 @@ all_individuals_with_their_division <- all %>%
 
 ## Dataset details
 
-### all
+### all.rda
 This is the main dataset and contains one row per politician, with columns: uniqueID, surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
 
 ```{r, out.width = "1138px", out.height = "111px", echo=FALSE}
@@ -87,7 +87,7 @@ Some politicians don't have a complete birth date, and instead only have a year 
 member and senator are binary indicator variables used to signify whether the politician was in the lower or upper house. Most politicians are only in one or the other, but some were in both. One politician in the dataset was neither a senator nor an MP - Heather Elaine Hill. She remains in the dataset because she was elected to the senate, and the need for this dataset to exactly match the AustralianElections one), however her eligibility was challenged and her election was invalidated, so she was never a senator. 
 
 
-### by_division_mps
+### by_division_mps.rda
 This dataset adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID; mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo; mpsEndReason; mpsChangedSeat; and mpsComments.
 
 ```{r, out.width = "1138px", out.height = "110px", echo=FALSE}
@@ -101,7 +101,7 @@ byElection is a binary indicator variable as to whether the politician was enter
 changedSeat is a binary indicator variable as to whether the politician left a division because they were changing the division, as opposed to losing an election or retiring.
 
 
-### by_party
+### by_party.rda
 This dataset adds information about the party of the politician. One row per party-politician, with columns: uniqueID; partyAbbrev; partyName; partyFrom; partyTo; partyChangedName; partySimplifiedName; partySpecificDateInputted; and partyComments.
 
 ```{r, out.width = "1590/2px", out.height = "111px", echo=FALSE}
@@ -118,7 +118,7 @@ Party name changes:
 * The Nick Xenophon Team changed to Centre Alliance on 10 April 2018, according to ABC news reports.
 
 
-### by_state_senators
+### by_state_senators.rda
 This dataset adds information about the state that a senator was representing. The variables are: uniqueID; senatorsState; senatorsFrom; senatorsTo; senatorsEndReason; senatorsSec15Sel; and senatorsComments.
 
 ```{r, out.width = "1872/2px", out.height = "114px", echo=FALSE}
@@ -129,7 +129,7 @@ This dataset is fairly similar to by_division_mps, expect that it also has senat
 
 
 
-### list_prime_ministers
+### list_prime_ministers.rda
 This dataset adds information about whether the politician has been prime minister. One row per politician, with columns: uniqueID, wasPrimeMinister.
 
 ```{r, out.width = "186px", out.height = "129px", echo=FALSE}
@@ -138,7 +138,7 @@ knitr::include_graphics("man/figures/list_prime_ministers.png")
 
 
 
-### uniqueID_to_aphID
+### uniqueID_to_aphID.rda
 This dataset adds a correspondence between the unique identifiers used in these datasets and the identifier used by the Australian Parliament House on its website. the main issue with the APH identifier is that it is not clear who it is referring to without looking it up. Additionally, in certain cases it changes from time to time, and it is easy to accidently change the format by opening it in Excel.
 
 ```{r, out.width = "273px", out.height = "107px", echo=FALSE}
@@ -153,15 +153,16 @@ knitr::include_graphics("man/figures/uniqueID_to_aphID.png")
 
 ## TODO
 
-* all: The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released. Also deathDate needs to be checked, and title needs to modified.
+* all.rda: The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released. 
+* all.rda: Need to go through and update the the titles fields - it's very inconsistent.
 * list_prime_ministers: Need to add the dates.
 
 
 ## Roadmap
 
 * Add dataset of ministers with dates.
-* Add information about birthplace and education to all.
-* Add information about relationships, for instance father-son, etc to all.
+* Add information about birthplace and education.
+* Add information about relationships, for instance father-son, etc.
 
 
 ## Sources
