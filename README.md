@@ -27,7 +27,8 @@ Australian politicians. The datasets are:
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 1 September 2019.
+The datasets are up-to-date as of 1 September 2019 (i.e. they include
+the deaths of Tim Fisher and Elaine Darling).
 
 ## Installation
 
