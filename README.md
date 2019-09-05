@@ -9,6 +9,9 @@
 status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
 <!-- badges: end -->
 
+**I am still developing this package, and there could be breaking
+changes as part of improving things.**
+
 `AustralianPoliticians` is a collection of datasets related to
 Australian politicians. The datasets are:
 
@@ -29,6 +32,9 @@ Australian politicians. The datasets are:
 
 The datasets are up-to-date as of 1 September 2019 (i.e. they include
 the deaths of Tim Fisher and Elaine Darling).
+
+If you have suggestions on how I could improve the datasets, or
+corrections, please don’t hesitate to get in touch.
 
 ## Installation
 
