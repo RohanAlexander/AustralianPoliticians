@@ -13,6 +13,6 @@
 list_prime_ministers
 }
 \description{
-This is a list of the Australian prime ministers, as of 24 August 2019.
+This is a list of the Australian prime ministers, as of 10 September 2019.
 }
 \keyword{datasets}

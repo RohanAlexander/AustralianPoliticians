@@ -4,17 +4,17 @@
 \name{by_division_mps}
 \alias{by_division_mps}
 \title{Data by division for members.}
-\format{A data frame with 1,418 rows and 9 variables:
+\format{A data frame with 1,428 rows and 9 variables:
 \describe{
 \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-\item{mpsDivision}{The name of the division.}
-\item{mpsState}{The state of the division.}
-\item{mpsEnteredAtByElection}{Whether the member was elected in a by-election.}
-\item{mpsFrom}{When did the member start representing that division.}
-\item{mpsTo}{When did the member finish representing that division.}
-\item{mpsEndReason}{Why did they stop?}
-\item{mpsChangedSeat}{Was it just that they changed seats?}
-\item{mpsComments}{Miscellaneous comments.}
+\item{division}{The name of the division.}
+\item{stateOfDivision}{The state of the division.}
+\item{enteredAtByElection}{Whether the member was elected in a by-election.}
+\item{mpFrom}{When did the member start representing that division.}
+\item{mpTo}{When did the member finish representing that division.}
+\item{mpEndReason}{Why did they stop?}
+\item{mpChangedSeat}{Was it just that they changed seats?}
+\item{mpComments}{Miscellaneous comments.}
 }}
 \usage{
 by_division_mps

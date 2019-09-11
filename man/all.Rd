@@ -4,7 +4,7 @@
 \name{all}
 \alias{all}
 \title{All individuals}
-\format{A data frame with 1,780 rows and 17 variables that is current as of 24 August 2019:
+\format{A data frame with 1,776 rows and 18 variables that is current as of 10 September 2019:
 \describe{
  \item{uniqueID}{uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively.}
  \item{surname}{The surname of the politician.}

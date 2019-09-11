@@ -4,7 +4,7 @@
 \name{by_party}
 \alias{by_party}
 \title{Party of each individual}
-\format{A data frame with 2,257 rows and 9 variables:
+\format{A data frame with 2,254 rows and 9 variables:
 \describe{
 \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 \item{partyAbbrev}{The party abbreviation that is used by the parliamentary handbook.}

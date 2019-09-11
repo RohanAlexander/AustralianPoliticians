@@ -1,4 +1,4 @@
-uniqueID,mpsDivision,mpsState,mpsEnteredAtByElection,mpsFrom,mpsTo,mpsEndReason,mpsChangedSeat,mpsComments
+uniqueID,division,stateOfDivision,enteredAtByElection,mpFrom,mpTo,mpEndReason,mpChangedSeat,mpComments
 Abbott1869,New England,NSW,No,1913-05-31,1919-11-03,Retired,,
 Abbott1886,Gwydir,NSW,No,1925-11-14,1929-10-12,Defeated,,
 Abbott1886,Gwydir,NSW,No,1931-12-19,1937-03-28,Resigned,,

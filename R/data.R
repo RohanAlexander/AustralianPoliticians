@@ -4,7 +4,7 @@
 #' House of Representatives or the Senate. Each row is an individual, and the
 #' columns are various pieces of information.
 #'
-#' @format A data frame with 1,780 rows and 17 variables that is current as of 24 August 2019:
+#' @format A data frame with 1,776 rows and 18 variables that is current as of 10 September 2019:
 #' \describe{
 #'  \item{uniqueID}{uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively.}
 #'  \item{surname}{The surname of the politician.}
@@ -31,7 +31,7 @@
 #'
 #' This is data about the party of each individual.
 #'
-#' @format A data frame with 2,257 rows and 9 variables:
+#' @format A data frame with 2,254 rows and 9 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 #'	\item{partyAbbrev}{The party abbreviation that is used by the parliamentary handbook.}
@@ -50,41 +50,41 @@
 #'
 #' This is data about the division that a particular member represents.
 #'
-#' @format A data frame with 1,418 rows and 9 variables:
+#' @format A data frame with 1,428 rows and 9 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
-#'	\item{mpsDivision}{The name of the division.}
-#'	\item{mpsState}{The state of the division.}
-#'	\item{mpsEnteredAtByElection}{Whether the member was elected in a by-election.}
-#'	\item{mpsFrom}{When did the member start representing that division.}
-#'	\item{mpsTo}{When did the member finish representing that division.}
-#'	\item{mpsEndReason}{Why did they stop?}
-#'	\item{mpsChangedSeat}{Was it just that they changed seats?}
-#'	\item{mpsComments}{Miscellaneous comments.}
+#'	\item{division}{The name of the division.}
+#'	\item{stateOfDivision}{The state of the division.}
+#'	\item{enteredAtByElection}{Whether the member was elected in a by-election.}
+#'	\item{mpFrom}{When did the member start representing that division.}
+#'	\item{mpTo}{When did the member finish representing that division.}
+#'	\item{mpEndReason}{Why did they stop?}
+#'	\item{mpChangedSeat}{Was it just that they changed seats?}
+#'	\item{mpComments}{Miscellaneous comments.}
 #' }
 "by_division_mps"
 
 
 #' Senators by state
 #'
-#' This provides information about the state that a senator represents, as of 24 August 2019.
+#' This provides information about the state that a senator represents, as of 10 September 2019.
 #'
-#' @format A data frame with 684 rows and 7 variables:
+#' @format A data frame with 685 rows and 7 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 #'	\item{senatorsState}{The state that they represented.}
-#'	\item{senatorsFrom}{When they were elected.}
-#'	\item{senatorsTo}{Their last day of being a senator.}
-#'	\item{senatorsEndReason}{Why did they stop being a senator?}
-#'	\item{senatorsSec15Sel}{Was the senator appointed, rather than voted?}
-#'	\item{senatorsComments}{Miscellaneous comments.}
+#'	\item{senatorFrom}{When they were elected.}
+#'	\item{senatorTo}{Their last day of being a senator.}
+#'	\item{senatorEndReason}{Why did they stop being a senator?}
+#'	\item{sec15Sel}{Was the senator appointed, rather than voted?}
+#'	\item{senatorComments}{Miscellaneous comments.}
 #' }
 "by_state_senators"
 
 
 #' List of prime ministers
 #'
-#' This is a list of the Australian prime ministers, as of 24 August 2019.
+#' This is a list of the Australian prime ministers, as of 10 September 2019.
 #'
 #' @format A data frame with 30 rows and 2 variables:
 #' \describe{

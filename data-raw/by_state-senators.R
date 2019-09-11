@@ -6,11 +6,13 @@ by_state_senators <- read_csv("data-raw/by_state_senators.csv",
                         col_types = cols(
                           uniqueID = col_character(),
                           senatorsState = col_character(),
-                          senatorsFrom = col_date(format = ""),
-                          senatorsTo = col_date(format = ""),
-                          senatorsEndReason = col_character(),
-                          senatorsSec15Sel = col_integer(),
-                          senatorsComments = col_character()
+                          senatorFrom = col_date(format = ""),
+                          senatorTo = col_date(format = ""),
+                          senatorEndReason = col_character(),
+                          sec15Sel = col_integer(),
+                          senatorComments = col_character()
                         ))
+
+
 
 usethis::use_data(by_state_senators)

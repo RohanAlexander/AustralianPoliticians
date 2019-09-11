@@ -15,4 +15,5 @@ by_party <- read_csv("data-raw/by_party.csv",
                        partyComments = col_character()
                      ))
 
+
 usethis::use_data(by_party)

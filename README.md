@@ -10,7 +10,12 @@ status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=ma
 <!-- badges: end -->
 
 **I am still developing this package, and there could be breaking
-changes as part of improving things.**
+changes as part of improving
+things.**
+
+<!-- I don’t have any significant feedback. I am a little bit confused about the way the tables were separated - why prime minister on its own table and why aph on its own table? Another way it could be separated is primary info in one table (name, birthdate, gender, member, senate, prime minister), external links (APH, wiki, ADB) in one table and have another for additional info (comments, earlier later names, all other names). -->
+
+<!-- I thought the help pages were great but noticed the row/variable numbers are slightly out of date. I guess this is tough when continuously updating it. -->
 
 `AustralianPoliticians` is a collection of datasets related to
 Australian politicians. The datasets are:
@@ -30,8 +35,9 @@ Australian politicians. The datasets are:
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 1 September 2019 (i.e. they include
-the deaths of Tim Fisher and Elaine Darling).
+The datasets are up-to-date as of 10 September 2019 (i.e. they include
+the deaths of Tim Fisher and Elaine Darling, and the appointment of
+Sarah Henderson).
 
 If you have suggestions on how I could improve the datasets, or
 corrections, please don’t hesitate to get in touch.
@@ -68,6 +74,11 @@ You could then combine the tables using left\_join:
 all_individuals_with_their_division <- all %>% 
   left_join(by_division_mps, by = c("uniqueID"))
 ```
+
+Monica Alexander has written a brief blog post where she uses the
+package to look at life expectency of Australian
+politicians:  
+<https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/>
 
 ## Dataset details
 
@@ -113,6 +124,8 @@ remains in the dataset because she was elected to the senate, and the
 need for this dataset to exactly match the AustralianElections one),
 however her eligibility was challenged and her election was invalidated,
 so she was never a senator.
+
+adb is a link to the Australian Dictionary of Biography.
 
 ### by\_division\_mps.rda
 
@@ -232,9 +245,11 @@ information. This was augmented with information from Wikipedia, the
 Australian Dictionary of Biography, and the Senate Biographies wherever
 possible. Limited information was obtained from other sources, such as
 state parliaments and newspapers (via Trove), and these have generally
-been specified in the comments. The uniqueID\_to\_aphID dataset was
-primarily drawn from a dataset put together by Patrick Leslie, but it
-was checked against a modern dataset from [Open
+been specified in the comments.
+
+The uniqueID\_to\_aphID dataset was primarily drawn from a dataset put
+together by Patrick Leslie, and it was checked against a modern dataset
+from [Open
 Australia](https://github.com/openaustralia/openaustralia-parser/blob/master/data/people.csv),
 and Tim Sherratt’s Historic Hansard records for the
 [Reps](http://historichansard.net/hofreps/people/) and
@@ -242,8 +257,9 @@ and Tim Sherratt’s Historic Hansard records for the
 
 ## Acknowledgements
 
-Thank you to Edward Howlett, Kelly Lyons, Monica Alexander, Sharla
-Gelfand, and Simon Munzert, for their help.
+Thank you to Ben Readshaw, Edward Howlett, Kelly Lyons, Monica
+Alexander, Sharla Gelfand, and Simon Munzert, for their help. Thank you
+to Patrick Leslie who generously donated data.
 
 The icon of parliaments used in the hex sticker was made by
 <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
