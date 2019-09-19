@@ -257,9 +257,18 @@ and Tim Sherratt’s Historic Hansard records for the
 
 ## Acknowledgements
 
-Thank you to Ben Readshaw, Edward Howlett, Kelly Lyons, Monica
-Alexander, Sharla Gelfand, and Simon Munzert, for their help. Thank you
-to Patrick Leslie who generously donated data.
+In terms of developing the package I am especially grateful for the
+advice and help of:
+
+  - Ben Readshaw,
+  - Edward Howlett,
+  - Kelly Lyons,
+  - Monica Alexander,
+  - Sharla Gelfand,
+  - Simon Munzert, and
+  - Zoe Meers.
+
+Thank you to Patrick Leslie who generously donated data.
 
 The icon of parliaments used in the hex sticker was made by
 <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
