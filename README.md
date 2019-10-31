@@ -27,17 +27,15 @@ Australian politicians. The datasets are:
     politician.
   - **by\_state\_senators.rda**: Adds information about the state that a
     senator was representing.
-  - **list\_prime\_ministers.rda**: Whether the politician was prime
-    minister.
   - **uniqueID\_to\_aphID.rda**: A correspondence between the uniqueIDs
     used in these datasets and the IDs used by the Australian Parliament
     House.
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 10 September 2019 (i.e. they include
-the deaths of Tim Fisher and Elaine Darling, and the appointment of
-Sarah Henderson).
+The datasets are up-to-date as of 30 October 2019 (i.e. they include the
+deaths of Tim Fisher and Elaine Darling, and the appointment of Sarah
+Henderson).
 
 If you have suggestions on how I could improve the datasets, or
 corrections, please don’t hesitate to get in touch.

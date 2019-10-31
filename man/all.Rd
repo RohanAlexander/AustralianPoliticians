@@ -20,6 +20,7 @@
  \item{deathDate}{All death dates are complete, but in the case of one politician -- John William Croft -- this has been inputted, as the circumstances and timing (even year) of his death are unknown.}
  \item{member}{member and senator are binary indicator variables used to signify whether the politician was in the lower or upper house. Most politicians are only in one or the other, but some were in both.}
  \item{senator}{One politician in the dataset was neither a senator nor an MP - Heather Elaine Hill. She remains in the dataset because she was elected to the senate, and the need for this dataset to exactly match the AustralianElections one), however her eligibility was challenged and her election was invalidated, so she was never a senator.}
+ \item{wasPrimeMinister}{Flag for whether the politician was ever prime minister.}
  \item{wikidataID}{The wikidata ID.}
  \item{wikipedia}{The wikipedia link.}
  \item{adb}{The Australian Dictionary of Biography link.}
