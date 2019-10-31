@@ -4,7 +4,7 @@
 \name{by_state_senators}
 \alias{by_state_senators}
 \title{Senators by state}
-\format{A data frame with 685 rows and 7 variables:
+\format{A data frame with 687 rows and 7 variables:
 \describe{
 \item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 \item{senatorsState}{The state that they represented.}
@@ -18,6 +18,6 @@
 by_state_senators
 }
 \description{
-This provides information about the state that a senator represents, as of 10 September 2019.
+This provides information about the state that a senator represents, as of 31 October 2019.
 }
 \keyword{datasets}

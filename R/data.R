@@ -4,7 +4,7 @@
 #' House of Representatives or the Senate. Each row is an individual, and the
 #' columns are various pieces of information.
 #'
-#' @format A data frame with 1,776 rows and 18 variables that is current as of 10 September 2019:
+#' @format A data frame with 1,776 rows and 20 variables, as of 31 October 2019:
 #' \describe{
 #'  \item{uniqueID}{uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively.}
 #'  \item{surname}{The surname of the politician.}
@@ -17,6 +17,7 @@
 #'  \item{gender}{What gender is the person.}
 #'  \item{birthDate}{What is their birthdate?}
 #'  \item{birthYear}{Some politicians don't have a complete birth date, and instead only have a year of birth. In these cases their entry for birthDate will be empty, but they will have a birthYear.}
+#'  \item{birthPlace}{Based on WikiData, this is the town or other place that they were born in.}
 #'  \item{deathDate}{All death dates are complete, but in the case of one politician -- John William Croft -- this has been inputted, as the circumstances and timing (even year) of his death are unknown.}
 #'  \item{member}{member and senator are binary indicator variables used to signify whether the politician was in the lower or upper house. Most politicians are only in one or the other, but some were in both.}
 #'  \item{senator}{One politician in the dataset was neither a senator nor an MP - Heather Elaine Hill. She remains in the dataset because she was elected to the senate, and the need for this dataset to exactly match the AustralianElections one), however her eligibility was challenged and her election was invalidated, so she was never a senator.}
@@ -30,7 +31,7 @@
 
 #' Party of each individual
 #'
-#' This is data about the party of each individual.
+#' This is data about the party of each individual, as of 31 October 2019.
 #'
 #' @format A data frame with 2,254 rows and 9 variables:
 #' \describe{
@@ -49,7 +50,7 @@
 
 #' Data by division for members.
 #'
-#' This is data about the division that a particular member represents.
+#' This is data about the division that a particular member represents, as of 31 October 2019.
 #'
 #' @format A data frame with 1,428 rows and 9 variables:
 #' \describe{
@@ -68,9 +69,9 @@
 
 #' Senators by state
 #'
-#' This provides information about the state that a senator represents, as of 10 September 2019.
+#' This provides information about the state that a senator represents, as of 31 October 2019.
 #'
-#' @format A data frame with 685 rows and 7 variables:
+#' @format A data frame with 687 rows and 7 variables:
 #' \describe{
 #'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
 #'	\item{senatorsState}{The state that they represented.}

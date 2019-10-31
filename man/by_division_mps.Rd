@@ -20,6 +20,6 @@
 by_division_mps
 }
 \description{
-This is data about the division that a particular member represents.
+This is data about the division that a particular member represents, as of 31 October 2019.
 }
 \keyword{datasets}

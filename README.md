@@ -9,14 +9,6 @@
 status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
 <!-- badges: end -->
 
-**I am still developing this package, and there could be breaking
-changes as part of improving
-things.**
-
-<!-- I don’t have any significant feedback. I am a little bit confused about the way the tables were separated - why prime minister on its own table and why aph on its own table? Another way it could be separated is primary info in one table (name, birthdate, gender, member, senate, prime minister), external links (APH, wiki, ADB) in one table and have another for additional info (comments, earlier later names, all other names). -->
-
-<!-- I thought the help pages were great but noticed the row/variable numbers are slightly out of date. I guess this is tough when continuously updating it. -->
-
 `AustralianPoliticians` is a collection of datasets related to
 Australian politicians. The datasets are:
 
@@ -33,9 +25,15 @@ Australian politicians. The datasets are:
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 30 October 2019 (i.e. they include the
+The datasets are up-to-date as of 31 October 2019 (i.e. they include the
 deaths of Tim Fisher and Elaine Darling, and the appointment of Sarah
 Henderson).
+
+If you are using this for anything other than general interest, then
+please check the comments column in case there is a flag that could
+affect your results. You’re also welcome to get in touch so that I can
+make sure that the aspect you’re interested in is of a good enough
+quality for your purposes.
 
 If you have suggestions on how I could improve the datasets, or
 corrections, please don’t hesitate to get in touch.
@@ -62,7 +60,6 @@ all <- AustralianPoliticians::all %>% as_tibble()
 by_division_mps <- AustralianPoliticians::by_division_mps %>% as_tibble()
 by_party <- AustralianPoliticians::by_party %>% as_tibble()
 by_state_senators <- AustralianPoliticians::by_state_senators %>% as_tibble()
-list_prime_ministers <- AustralianPoliticians::list_prime_ministers %>% as_tibble()
 uniqueID_to_aphID <- AustralianPoliticians::uniqueID_to_aphID %>% as_tibble()
 ```
 
@@ -85,7 +82,8 @@ politicians:
 This is the main dataset and contains one row per politician, with
 columns: uniqueID, surname, allOtherNames, firstName, commonName,
 displayName, earlierOrLaterNames, title, gender, birthDate, birthYear,
-deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
+birthPlace, deathDate, member, senator, wikidataID, wikipedia, adb, and
+comments.
 
 <img src="man/figures/all.png" width="1138px" height="111px" />
 
@@ -113,6 +111,8 @@ a year of birth. In these cases their entry for birthDate will be empty,
 but they will have a birthYear. All death dates are complete, but in the
 case of one politician – John William Croft – this has been inputted, as
 the circumstances and timing (even year) of his death are unknown.
+birthPlace is mostly taken from WikiData, with a few updates. There are
+some issues that need to be addressed here.
 
 member and senator are binary indicator variables used to signify
 whether the politician was in the lower or upper house. Most politicians
@@ -201,14 +201,6 @@ This dataset is fairly similar to by\_division\_mps, expect that it also
 has senatorsSec15Sel This is a binary indicator variable and indicates
 whether the senator has been appointed rather than elected.
 
-### list\_prime\_ministers.rda
-
-This dataset adds information about whether the politician has been
-prime minister. One row per politician, with columns: uniqueID,
-wasPrimeMinister.
-
-<img src="man/figures/list_prime_ministers.png" width="186px" height="129px" />
-
 ### uniqueID\_to\_aphID.rda
 
 This dataset adds a correspondence between the unique identifiers used
@@ -228,13 +220,13 @@ Excel.
     as soon as the birthdays are released.
   - all.rda: Need to go through and update the the titles fields - it’s
     very inconsistent.
-  - list\_prime\_ministers: Need to add the dates.
 
 ## Roadmap
 
   - Add dataset of ministers with dates.
   - Add information about birthplace and education.
   - Add information about relationships, for instance father-son, etc.
+  - Add voting based on JFG’s dataset.
 
 ## Sources
 
@@ -243,7 +235,7 @@ information. This was augmented with information from Wikipedia, the
 Australian Dictionary of Biography, and the Senate Biographies wherever
 possible. Limited information was obtained from other sources, such as
 state parliaments and newspapers (via Trove), and these have generally
-been specified in the comments.
+been specified in the comments. birthPlace is mostly from WikiData.
 
 The uniqueID\_to\_aphID dataset was primarily drawn from a dataset put
 together by Patrick Leslie, and it was checked against a modern dataset
@@ -262,9 +254,8 @@ advice and help of:
   - Edward Howlett,
   - Kelly Lyons,
   - Monica Alexander,
-  - Sharla Gelfand,
-  - Simon Munzert, and
-  - Zoe Meers.
+  - Sharla Gelfand, and
+  - Simon Munzert.
 
 Thank you to Patrick Leslie who generously donated data.
 
@@ -279,9 +270,8 @@ from
 
 If you use `AustralianPoliticians`, please consider citing:
 
-Alexander, Rohan. (2019). AustralianPoliticians: Datasets on Australian
-Politicians. Source:
-<https://github.com/RohanAlexander/AustralianPoliticians>.
+Alexander, Rohan. (2019). Three datasets on Australian politics. Working
+paper.
 
 ## Author information
 

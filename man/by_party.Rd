@@ -20,6 +20,6 @@
 by_party
 }
 \description{
-This is data about the party of each individual.
+This is data about the party of each individual, as of 31 October 2019.
 }
 \keyword{datasets}
