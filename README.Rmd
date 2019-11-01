@@ -26,6 +26,7 @@ knitr::opts_chunk$set(
 * **by_party.rda**: Adds information about the party of the politician. 
 * **by_state_senators.rda**: Adds information about the state that a senator was representing.
 * **uniqueID_to_aphID.rda**: A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
+* **appointments.rda**: A very provisional dataset that will eventually be all ministers etc. Don't use it for anything yet.
 
 ![alt text](man/figures/schema.png)
 
@@ -158,7 +159,7 @@ knitr::include_graphics("man/figures/uniqueID_to_aphID.png")
 ## Roadmap
 
 * Add dataset of ministers with dates.
-* Add information about birthplace and education.
+* Add information about education.
 * Add information about relationships, for instance father-son, etc.
 * Add voting based on JFG's dataset.
 

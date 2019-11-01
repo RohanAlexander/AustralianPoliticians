@@ -22,6 +22,8 @@ Australian politicians. The datasets are:
   - **uniqueID\_to\_aphID.rda**: A correspondence between the uniqueIDs
     used in these datasets and the IDs used by the Australian Parliament
     House.
+  - **appointments.rda**: A very provisional dataset that will
+    eventually be all ministers etc. Don’t use it for anything yet.
 
 ![alt text](man/figures/schema.png)
 
@@ -224,7 +226,7 @@ Excel.
 ## Roadmap
 
   - Add dataset of ministers with dates.
-  - Add information about birthplace and education.
+  - Add information about education.
   - Add information about relationships, for instance father-son, etc.
   - Add voting based on JFG’s dataset.
 

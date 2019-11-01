@@ -95,3 +95,18 @@
 #'	\item{idsComments}{Miscellaneous comments.}
 #' }
 "uniqueID_to_aphID"
+
+
+#' appointments and positions
+#'
+#' This is a correspondence between uniqueIDs and the ids used by the Australian parliament house. This is a very initial dataset and shouldn't be used.
+#'
+#' @format A data frame with 581 rows and 5 variables:
+#' \describe{
+#'	\item{uniqueID}{An indentifier that is unique to each politician, usually just their surname and their year of birth, but occasionally more in cases where that would not be unique.}
+#'	\item{position_name}{The name of the appointment, eg Prime Minister.}
+#'	\item{positionWikidataID}{The id for that appointment.}
+#'	\item{start_date}{When the person started that.}
+#'	\item{end_date}{When the person finished.}
+#' }
+"positions"
