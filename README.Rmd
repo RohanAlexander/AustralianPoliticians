@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 31 October 2019 (i.e. they include the deaths of Tim Fisher and Elaine Darling, and the appointment of Sarah Henderson).
+The datasets are up-to-date as of 19 November 2019 (i.e. they include the deaths of Fisher and Darling; Henderson's appointment; Sinodinos' retirement; Molan's appointment).
 
 If you are using this for anything other than general interest, then please check the comments column in case there is a flag that could affect your results. You're also welcome to get in touch so that I can make sure that the aspect you're interested in is of a good enough quality for your purposes.
 
@@ -78,8 +78,8 @@ https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/
 ### all.rda
 This is the main dataset and contains one row per politician, with columns: uniqueID, surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, birthPlace, deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
 
-```{r, out.width = "1138px", out.height = "111px", echo=FALSE}
-knitr::include_graphics("man/figures/all.png")
+```{r}
+head(AustralianPoliticians::all)
 ```
 
 uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively. 
@@ -98,8 +98,8 @@ adb is a link to the Australian Dictionary of Biography.
 ### by_division_mps.rda
 This dataset adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID; mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo; mpsEndReason; mpsChangedSeat; and mpsComments.
 
-```{r, out.width = "1138px", out.height = "110px", echo=FALSE}
-knitr::include_graphics("man/figures/by_division_mps.png")
+```{r}
+head(AustralianPoliticians::by_division_mps)
 ```
 
 Certain divisions change name. Sometimes this is minor, for instance Kingsford-Smith to Kingsford Smith, and sometimes it is total. In all cases this is being treated as change in division -- the politician is treated as finishing with one division and moving to another -- but changedSeat can be used to identify these cases and adjust for them if necessary.
@@ -112,8 +112,8 @@ changedSeat is a binary indicator variable as to whether the politician left a d
 ### by_party.rda
 This dataset adds information about the party of the politician. One row per party-politician, with columns: uniqueID; partyAbbrev; partyName; partyFrom; partyTo; partyChangedName; partySimplifiedName; partySpecificDateInputted; and partyComments.
 
-```{r, out.width = "1590/2px", out.height = "111px", echo=FALSE}
-knitr::include_graphics("man/figures/by_party.png")
+```{r}
+head(AustralianPoliticians::by_party)
 ```
 
 Party can be a little confusing in cases where a politician changed party. In general, in this dataset, the to/from dates are set-up so that when a politician is in parliament they will have the correct party. However the dataset should not be used to say anything about when they are out of parliament. For instance, some politicians lost their seat, changed party, and then regained a seat in parliament. The dataset does not know when they changed party while they were out of parliament, and it assumes that they changed party either at the same time that they lost their seat or at the same time as they re-gained a seat. Similarly, there are plenty of cases where a politician has ceased being a member after they leave parliament, for instance, Malcolm Fraser left the Liberals. Again, that is not reflected in the dataset.
@@ -129,8 +129,8 @@ Party name changes:
 ### by_state_senators.rda
 This dataset adds information about the state that a senator was representing. The variables are: uniqueID; senatorsState; senatorsFrom; senatorsTo; senatorsEndReason; senatorsSec15Sel; and senatorsComments.
 
-```{r, out.width = "1872/2px", out.height = "114px", echo=FALSE}
-knitr::include_graphics("man/figures/by_state_senators.png")
+```{r}
+head(AustralianPoliticians::by_state_senators)
 ```
 
 This dataset is fairly similar to by_division_mps, expect that it also has senatorsSec15Sel This is a binary indicator variable and indicates whether the senator has been appointed rather than elected.
@@ -140,10 +140,17 @@ This dataset is fairly similar to by_division_mps, expect that it also has senat
 ### uniqueID_to_aphID.rda
 This dataset adds a correspondence between the unique identifiers used in these datasets and the identifier used by the Australian Parliament House on its website. the main issue with the APH identifier is that it is not clear who it is referring to without looking it up. Additionally, in certain cases it changes from time to time, and it is easy to accidently change the format by opening it in Excel.
 
-```{r, out.width = "273px", out.height = "107px", echo=FALSE}
-knitr::include_graphics("man/figures/uniqueID_to_aphID.png")
+```{r}
+head(AustralianPoliticians::uniqueID_to_aphID)
 ```
 
+
+### appointments.rda
+This dataset adds the beginnings of a dataset about ministerial appointments. Don't use it yet.
+
+```{r}
+head(AustralianPoliticians::positions)
+```
 
 
 
