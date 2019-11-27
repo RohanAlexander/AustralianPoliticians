@@ -27,9 +27,9 @@ Australian politicians. The datasets are:
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 19 November 2019 (i.e. they include
-the deaths of Fisher and Darling; Henderson’s appointment; Sinodinos’
-retirement; Molan’s appointment).
+The datasets are up-to-date as of 27 November 2019 (i.e. they include
+the deaths of Fisher, Darling and Humphreys; the appointments of
+Henderson and Molan; and Sinodinos’ retirement).
 
 If you are using this for anything other than general interest, then
 please check the comments column in case there is a flag that could
