@@ -19,17 +19,19 @@ Australian politicians. The datasets are:
     politician.
   - **by\_state\_senators.rda**: Adds information about the state that a
     senator was representing.
+  - **cabinet.rda**: A provisional dataset of who was in the cabinet.
+  - **ministry.rda**: A provisional dataset of who was in the ministry
   - **uniqueID\_to\_aphID.rda**: A correspondence between the uniqueIDs
     used in these datasets and the IDs used by the Australian Parliament
     House.
-  - **appointments.rda**: A very provisional dataset that will
-    eventually be all ministers etc. Don’t use it for anything yet.
 
 ![alt text](man/figures/schema.png)
 
-The datasets are up-to-date as of 27 November 2019 (i.e. they include
-the deaths of Fisher, Darling and Humphreys; the appointments of
-Henderson and Molan; and Sinodinos’ retirement).
+In general, the datasets are up-to-date as of 30 November 2019
+(i.e. they include the deaths of Fisher, Darling and Humphreys; the
+appointments of Henderson and Molan; and Sinodinos’ retirement).
+
+The ministry and cabinets datasets are up-to-date as of 2017.
 
 If you are using this for anything other than general interest, then
 please check the comments column in case there is a flag that could
@@ -339,7 +341,7 @@ head(AustralianPoliticians::positions)
 
 ## Roadmap
 
-  - Add dataset of ministers with dates.
+  - ~~Add dataset of ministers with dates.~~
   - Add information about education.
   - Add information about relationships, for instance father-son, etc.
   - Add voting based on JFG’s dataset.

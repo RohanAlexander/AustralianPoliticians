@@ -110,3 +110,43 @@
 #'	\item{end_date}{When the person finished.}
 #' }
 "positions"
+
+
+
+#' ministry
+#'
+#' This is a correspondence between uniqueIDs and the ids used by the Australian parliament house. This is a very initial dataset and shouldn't be used.
+#'
+#' @format A data frame with 581 rows and 5 variables:
+#' \describe{
+#'    {ministry}{}
+#'    {ministry_number}{}
+#'    {ministry_party}{}
+#'    {ministry_title}{}
+#'    {uniqueID}{}
+#'    {ministry_name}{}
+#'    {ministry_from}{}
+#'    {ministry_to}{}
+#'    {ministry_assistant_minister_or_parliamentary_secretary}{}
+#'    {ministry_comment}{}
+#' }
+"ministry"
+
+
+
+#' cabinet
+#'
+#' This is a correspondence between uniqueIDs and the ids used by the Australian parliament house. This is a very initial dataset and shouldn't be used.
+#'
+#' @format A data frame with 581 rows and 5 variables:
+#' \describe{
+#'  \item{cabinet}{}
+#'  \item{cabinet_number}{}
+#'  \item{cabinet_name}{}
+#'  \item{uniqueID}{}
+#'  \item{cabinet_from}{}
+#'  \item{cabinet_to}{}
+#'  \item{cabinet_comment}{}
+#' }
+"cabinet"
+
