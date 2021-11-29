@@ -20,7 +20,7 @@
 #' will stop function processes and return an error message.
 #'
 #' @return A console printout of a tibble containing arguments to be used with the function,
-#' or the requested dataset using \code{x} to a user assigned name.
+#' or the requested dataset using \code{x} assigned to a user created variable.
 #'
 #' @examples
 #' \dontrun{
@@ -39,6 +39,10 @@
 #' # Preview dataset.
 #' head(reps)
 #' }
+#'
+#' @export
+# Function to produce manipulated datasets for HoRs and Senate members.
+# Takes one parameter as a character string to produce datasets.
 
 # assign function name
 get_reps_senate <- function(x){
@@ -77,38 +81,38 @@ get_reps_senate <- function(x){
   # read csv files into list
   dflist <- lapply(tmpfls, readr::read_csv, show_col_types = F)
   # assign first item in the list to new variable
-  australian_mps <- dflist[[1]] %>%
-    # filter for where member is 1
-    dplyr::filter(member == 1) %>%
+  australian_mps <- dflist[[1]]
+  # filter for where member is 1
+    australian_mps <- dplyr::filter(australian_mps, member == 1)
     # join with second item in list by uniqueID
-    dplyr::left_join(dflist[[2]],
-              by = "uniqueID") %>%
+    australian_mps <- dplyr::left_join(australian_mps, dflist[[2]],
+                by = "uniqueID")
     # select uniqueID, mpFrom, and mpTo
-    dplyr::select(uniqueID, mpFrom, mpTo) %>%
+    australian_mps <- dplyr::select(australian_mps, uniqueID, mpFrom, mpTo)
     # mutate house column to hold "reps"
-    dplyr::mutate(house = "reps") %>%
+    australian_mps <- dplyr::mutate(australian_mps, house = "reps")
     # rename mpFrom to from and mpTo to to
-    dplyr::rename(from = mpFrom,
-           to = mpTo)
+    australian_mps <- dplyr::rename(australian_mps, from = mpFrom,
+             to = mpTo)
   # assign new variable from first item in list
-  australian_senators <- dflist[[1]] %>%
+  australian_senators <- dflist[[1]]
     # filter for where senator is 1
-    dplyr::filter(senator == 1) %>%
+    australian_senators <- dplyr::filter(australian_senators, senator == 1)
     # join with third item in list by uniqueID
-    dplyr::left_join(dflist[[3]],
-              by = "uniqueID") %>%
+    australian_senators <- dplyr::left_join(australian_senators, dflist[[3]],
+              by = "uniqueID")
     # select uniqueID, senatorFrom, and senatorTo
-    dplyr::select(uniqueID, senatorFrom, senatorTo) %>%
+    australian_senators <- dplyr::select(australian_senators, uniqueID, senatorFrom, senatorTo)
     # mutate house column to hold "senate"
-    dplyr::mutate(house = "senate") %>%
+    australian_senators <- dplyr::mutate(australian_senators, house = "senate")
     # rename seantorFrom to from and senatorTo to to
-    dplyr::rename(from = senatorFrom,
+    australian_senators <- dplyr::rename(australian_senators, from = senatorFrom,
            to = senatorTo)
   # assign new variable through row binding two created variables
-  australian_politicians <- rbind(australian_mps, australian_senators) %>%
+  australian_politicians <- rbind(australian_mps, australian_senators)
     # mutate house values so where house is senate it is Senate
     # and where house is reps it is HoR
-    dplyr::mutate(house =
+    dplyr::mutate(australian_politicians, house =
              dplyr::case_when(
                house == "senate" ~ "Senate",
                house == "reps" ~ "HoR",
@@ -123,18 +127,18 @@ get_reps_senate <- function(x){
     # read csv files into list
     dflist <- lapply(tmpfls, readr::read_csv, show_col_types = F)
     # assign first item in the list to new variable
-    australian_mps <- dflist[[1]] %>%
+    australian_mps <- dflist[[1]]
       # filter for where member is 1
-      dplyr::filter(member == 1) %>%
+      australian_mps <- dplyr::filter(australian_mps, member == 1)
       # join with second item in list by uniqueID
-      dplyr::left_join(dflist[[2]],
-                       by = "uniqueID") %>%
+      australian_mps <- dplyr::left_join(australian_mps, dflist[[2]],
+                       by = "uniqueID")
       # select uniqueID, mpFrom, and mpTo
-      dplyr::select(uniqueID, mpFrom, mpTo) %>%
+      australian_mps <- dplyr::select(australian_mps, uniqueID, mpFrom, mpTo)
       # mutate house column to hold "reps"
-      dplyr::mutate(house = "HoR") %>%
+      australian_mps <- dplyr::mutate(australian_mps, house = "HoR")
       # rename mpFrom to from and mpTo to to
-      dplyr::rename(from = mpFrom,
+      australian_mps <- dplyr::rename(australian_mps, from = mpFrom,
                     to = mpTo)
   }
   else if(x == "senate"){
@@ -145,18 +149,18 @@ get_reps_senate <- function(x){
     # read csv files into list
     dflist <- lapply(tmpfls, readr::read_csv, show_col_types = F)
     # assign new variable from first item in list
-    australian_senators <- dflist[[1]] %>%
+    australian_senators <- dflist[[1]]
       # filter for where senator is 1
-      dplyr::filter(senator == 1) %>%
+      australian_senators <- dplyr::filter(australian_senators, senator == 1)
       # join with third item in list by uniqueID
-      dplyr::left_join(dflist[[2]],
-                       by = "uniqueID") %>%
+      australian_senators <-dplyr::left_join(australian_senators, dflist[[2]],
+                       by = "uniqueID")
       # select uniqueID, senatorFrom, and senatorTo
-      dplyr::select(uniqueID, senatorFrom, senatorTo) %>%
+      australian_senators <- dplyr::select(australian_senators, uniqueID, senatorFrom, senatorTo)
       # mutate house column to hold "senate"
-      dplyr::mutate(house = "Senate") %>%
+      australian_senators <- dplyr::mutate(australian_senators, house = "Senate")
       # rename seantorFrom to from and senatorTo to to
-      dplyr::rename(from = senatorFrom,
+      australian_senators <- dplyr::rename(australian_senators, from = senatorFrom,
                     to = senatorTo)
   }
 }

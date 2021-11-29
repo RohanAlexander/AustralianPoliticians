@@ -1,13 +1,18 @@
 Package: AustralianPoliticians
 Title: Provides Datasets About Australian Politicians
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
-    person(given = "Rohan",
+    c(person(given = "Rohan",
            family = "Alexander",
            role = c("aut", "cre"),
            email = "rohan.alexander@utoronto.ca",
-           comment = c(ORCID = "0000-0001-6759-7276"))
-Description: This package provides a variety of datasets related to Australian politicians that I commonly copied from project to project. By distributing them using this package, they can hopefully all remain updated to the same extent and reduce time copying and pasting.
+           comment = c(ORCID = "0000-0001-6759-7276")),
+      person(given = "Paul A.",
+      family = "Hodgetts",
+      role = c("aut"),
+      email = "hodgetts.paul@outlook.com"))
+Description: Provides access to biographical and political data about Australian federal politicians who served between 1901 and 2021.
+    This enhances the reproducibility of research that uses this data.
 Depends:
     R (>= 2.10)
 License: MIT + file LICENSE
@@ -15,4 +20,18 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/RohanAlexander/AustralianPoliticians
 BugReports: https://github.com/RohanAlexander/AustralianPoliticians/issues
-RoxygenNote: 7.0.0
+RoxygenNote: 7.1.2
+Imports:
+    dplyr,
+    readr,
+    purrr,
+    utils,
+    tibble
+Suggests:
+    rmarkdown,
+    knitr,
+    spelling,
+    testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
+Config/testthat/edition: 3

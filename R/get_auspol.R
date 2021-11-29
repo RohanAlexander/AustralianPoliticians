@@ -28,6 +28,10 @@
 #' head(senators_df, 10)
 #' }
 #' @seealso `show_datacodes()` function help.
+#'
+#' @export
+# Function to access Australian politicians datasets.
+# Takes one argument as a character string to download and assign dataset to given variable name.
 
 
 

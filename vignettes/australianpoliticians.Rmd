@@ -22,7 +22,7 @@ Load the package with:
 library(AustralianPoliticians)
 ```
 
-The purpose of `AustralianPoliticians` is to ...
+The purpose of `AustralianPoliticians` is to make it easier to access biographical and political data about Australian federal politicians. This is done through the use of functions that get and manipulate publically accessable datasets that were constructed for this purpose. These datasets have every politician in the House of Representatives and the Sentate between 1901 and 2021. To get started with the package:
 
 ## Show data request codes
 

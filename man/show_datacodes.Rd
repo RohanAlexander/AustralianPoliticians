@@ -28,11 +28,13 @@ Australian Politicians dataset.
 * `"senators"` australian_politicians-senators-by_state.csv.
 }
 \examples{
+\dontrun{
 # Print out dataset request codes.
 show_datacodes()
 
 # Request "All" Australian Politicans dataset.
 get_auspol("all")
+}
 
 }
 \seealso{

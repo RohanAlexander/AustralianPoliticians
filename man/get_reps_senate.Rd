@@ -12,7 +12,7 @@ get_reps_senate(x)
 }
 \value{
 A console printout of a tibble containing arguments to be used with the function,
-or the requested dataset using \code{x} to a user assigned name.
+or the requested dataset using \code{x} assigned to a user created variable.
 }
 \description{
 `get_reps_senate()` generates a dataset for members' service time for
@@ -48,4 +48,5 @@ reps <- get_reps_senate("reps")
 # Preview dataset.
 head(reps)
 }
+
 }

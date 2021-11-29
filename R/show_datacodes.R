@@ -20,13 +20,19 @@
 #' @return A console printout of a tibble with a designated number of values set by \code{limit}.
 #'
 #' @examples
+#' \dontrun{
 #' # Print out dataset request codes.
 #' show_datacodes()
 #'
 #' # Request "All" Australian Politicans dataset.
 #' get_auspol("all")
+#' }
 #'
 #' @seealso `get_auspol()` function help.
+#'
+#' @export
+# Function to produce the codes used to access Australian politicians datasets.
+# Creates two vectors then assigns these to a tibble, which is then printed to the console using the head function.
 
 
 # assign function name `show_datacodes` taking one numeric argument
