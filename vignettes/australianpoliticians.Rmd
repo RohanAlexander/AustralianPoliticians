@@ -28,10 +28,16 @@ The purpose of `AustralianPoliticians` is to ...
 
 Request codes are used to access the specific datasets in `AustralianPoliticians`. These codes used in conjunction with the `get_auspol()` function allow for a dataset to be downloaded and assigned a variable name. The `show_datacodes()` function prints these codes to the console as a tibble.
 
-```{r}
+```{r eval = F}
 show_datacodes()
+# A tibble: 4 x 2
+  request_code dataset                                     
+  <chr>        <chr>                                       
+1 all          australian_politicians-all.csv              
+2 allbyparty   australian_politicians-all-by_party.csv     
+3 mps          australian_politicians-mps-by_division.csv  
+4 senators     australian_politicians-senators-by_state.csv
 ```
-
 
 ## Download Australian Politician data
 
