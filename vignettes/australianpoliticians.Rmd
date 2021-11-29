@@ -22,7 +22,7 @@ Load the package with:
 library(AustralianPoliticians)
 ```
 
-The purpose of `AustralianPoliticians` is to make it easier to access biographical and political data about Australian federal politicians. This is done through the use of functions that get and manipulate publically accessable datasets that were constructed for this purpose. These datasets have every politician in the House of Representatives and the Sentate between 1901 and 2021. To get started with the package:
+The purpose of `AustralianPoliticians` is to make it easier to access biographical and political data about Australian federal politicians. This is done through the use of functions that get and manipulate publicly accessible datasets that were constructed for this purpose. These datasets have every politician in the House of Representatives and the Senate between 1901 and 2021. To get started with the package:
 
 ## Show data request codes
 
@@ -71,7 +71,7 @@ all_auspol <- get_auspol("all")
 
 ## House of Representatives and Senate
 
-In some cases it may be necessary to join datasets to gain more information than is contained in just one dataset. The `get_reps_senate()` function does this in downloading the `house of representatives` data or `senate` data and joins these with the `all` dataset to show the dates served by a politician in either political sector. It can do this for both datasets, joining `house of representatives` and `senate` to `all`, or for just one of `house of representative` or `senate` depending on what is required.
+In some cases, it may be necessary to join datasets to gain more information than is contained in just one dataset. The `get_reps_senate()` function does this in downloading the `house of representatives` data or `senate` data and joins these with the `all` dataset to show the dates served by a politician in either political sector. It can do this for both datasets, joining `house of representatives` and `senate` to `all`, or for just one of `house of representative` or `senate` depending on what is required.
 
 This function also includes an argument that allows for the associated request codes to be printed to the console.
 

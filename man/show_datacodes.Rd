@@ -21,18 +21,19 @@ and the associated datasets.
 Items under *Request Codes* can be used to request and download the associated
 Australian Politicians dataset.
 
-## Request Codes
-* `"all"` australian_politicians-all.csv.
-* `"allbyparty"` australian_politicians-all-by_party.csv.
-* `"mps"` australian_politicians-mps-by_division.csv.
-* `"senators"` australian_politicians-senators-by_state.csv.
+The specifics of these are:
+
+- `"all"` australian_politicians-all.csv.
+- `"allbyparty"` australian_politicians-all-by_party.csv.
+- `"mps"` australian_politicians-mps-by_division.csv.
+- `"senators"` australian_politicians-senators-by_state.csv.
 }
 \examples{
 \dontrun{
 # Print out dataset request codes.
 show_datacodes()
 
-# Request "All" Australian Politicans dataset.
+# Request "All" Australian Politicians dataset.
 get_auspol("all")
 }
 

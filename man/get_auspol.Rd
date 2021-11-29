@@ -16,15 +16,17 @@ The requested dataset using \code{df} to a user assigned name.
 `get_auspol()` downloads a requested Australian politicians .csv dataset using an associated argument.
 }
 \details{
-## Request Codes
-* `all` requests the australian_politicians-all.csv dataset.
-* `allbyparty` requests the australian_politicians-all-by_party.csv dataset.
-* `mps` requests the australian_politicians-mps-by_division.csv dataset.
-* `senators` requests the australian_politicians-senators-by_state.csv dataset.
+There are four request codes: `all`, `allbyparty`, `mps` and `senators`.
 
-## Incorrect Requests
-An incorrect request (an argument not associated with a dataset or non-character string argument)
-will stop function processes and return an error message.
+The specifics of these are:
+
+- `all` requests the australian_politicians-all.csv dataset.
+- `allbyparty` requests the australian_politicians-all-by_party.csv dataset.
+- `mps` requests the australian_politicians-mps-by_division.csv dataset.
+- `senators` requests the australian_politicians-senators-by_state.csv dataset.
+
+An incorrect request (an argument not associated with a dataset or non-character
+string argument) will stop function processes and return an error message.
 }
 \examples{
 \dontrun{

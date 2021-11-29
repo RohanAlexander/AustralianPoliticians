@@ -9,13 +9,15 @@
 #' *see Request Codes* below, or one of three prepared datasets.
 #'
 #' @details
-#' ## Request Codes
-#' * `reps_senate` - generates a dataset of HoRs and Senate members.
-#' * `reps` - generates a dataset of HoRs members.
-#' * `senate` - generates a dataset of Senate members.
-#' * `codes` - returns a tibble of codes used to request data.
+#' There are four request codes: `reps_senate`, `reps`, `senate` and `codes`.
 #'
-#' ## Incorrect Requests
+#' The specifics of these are:
+#'
+#' - `reps_senate` - generates a dataset of HoRs and Senate members;
+#' - `reps` - generates a dataset of HoRs members;
+#' - `senate` - generates a dataset of Senate members; and
+#' - `codes` - returns a tibble of codes used to request data.
+#'
 #' An incorrect request code (an argument not associated with a dataset or non-character string argument)
 #' will stop function processes and return an error message.
 #'

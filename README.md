@@ -1,37 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" width="240px" align="right" />
+# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" align="right" height="200" />
 
-<!-- badges: start -->
+The goal of `AustralianPoliticians` is to provide access to biographical
+and political data about Australian federal politicians who served
+between 1901 and 2021. This enhances the reproducibility of research
+that uses this data. The packages are:
 
-[![Travis build
-status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
-<!-- badges: end -->
-
-`AustralianPoliticians` is a collection of datasets related to
-Australian politicians. The datasets are:
-
-  - **all.rda**: The main dataset.
-  - **by\_division\_mps.rda**: Adds information about the division
+-   **all.rda**: The main dataset.
+-   **by\_division\_mps.rda**: Adds information about the division
     (‘seat’) of the politician.
-  - **by\_party.rda**: Adds information about the party of the
+-   **by\_party.rda**: Adds information about the party of the
     politician.
-  - **by\_state\_senators.rda**: Adds information about the state that a
+-   **by\_state\_senators.rda**: Adds information about the state that a
     senator was representing.
-  - **cabinet.rda**: A provisional dataset of who was in the cabinet.
-  - **ministry.rda**: A provisional dataset of who was in the ministry
-  - **uniqueID\_to\_aphID.rda**: A correspondence between the uniqueIDs
-    used in these datasets and the IDs used by the Australian Parliament
-    House.
 
-![alt text](man/figures/schema.png)
-
-In general, the datasets are up-to-date as of 30 November 2019
-(i.e. they include the deaths of Fisher, Darling and Humphreys; the
-appointments of Henderson and Molan; and Sinodinos’ retirement).
-
-The ministry and cabinets datasets are up-to-date as of 2017.
+The datasets are up-to-date as of 29 November 2021.
 
 If you are using this for anything other than general interest, then
 please check the comments column in case there is a flag that could
@@ -44,10 +29,16 @@ corrections, please don’t hesitate to get in touch.
 
 ## Installation
 
-You can install this package from GitHub with:
+You can install the released version of `AustralianPoliticians` from
+CRAN:
 
 ``` r
-# install.packages("devtools")
+install.packages("AustralianPoliticians")
+```
+
+or the development version from GitHub with:
+
+``` r
 devtools::install_github("RohanAlexander/AustralianPoliticians")
 ```
 
@@ -60,23 +51,21 @@ library(tidyverse)
 
 devtools::install_github("RohanAlexander/AustralianPoliticians")
 
-all <- AustralianPoliticians::all %>% as_tibble()
-by_division_mps <- AustralianPoliticians::by_division_mps %>% as_tibble()
-by_party <- AustralianPoliticians::by_party %>% as_tibble()
-by_state_senators <- AustralianPoliticians::by_state_senators %>% as_tibble()
-uniqueID_to_aphID <- AustralianPoliticians::uniqueID_to_aphID %>% as_tibble()
+all <- AustralianPoliticians::get_auspol('all')
+party <- AustralianPoliticians::get_auspol('allbyparty')
+mps <- AustralianPoliticians::get_auspol('mps')
+senators <- AustralianPoliticians::get_auspol('senators')
 ```
 
 You could then combine the tables using left\_join:
 
 ``` r
 all_individuals_with_their_division <- all %>% 
-  left_join(by_division_mps, by = c("uniqueID"))
+  left_join(mps, by = c("uniqueID"))
 ```
 
 Monica Alexander has written a brief blog post where she uses the
-package to look at life expectency of Australian
-politicians:  
+package to look at life expectancy of Australian politicians:  
 <https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/>
 
 ## Dataset details
@@ -90,50 +79,28 @@ birthPlace, deathDate, member, senator, wikidataID, wikipedia, adb, and
 comments.
 
 ``` r
-head(AustralianPoliticians::all)
-#>     uniqueID surname          allOtherNames firstName commonName
-#> 1 Abbott1859  Abbott  Richard Hartley Smith   Richard       <NA>
-#> 2 Abbott1869  Abbott           Percy Phipps     Percy       <NA>
-#> 3 Abbott1877  Abbott              Macartney Macartney        Mac
-#> 4 Abbott1886  Abbott Charles Lydiard Aubrey   Charles     Aubrey
-#> 5 Abbott1891  Abbott          Joseph Palmer    Joseph       <NA>
-#> 6 Abbott1957  Abbott           Anthony John   Anthony       Tony
-#>       displayName earlierOrLaterNames title gender  birthDate birthYear
-#> 1 Abbott, Richard                <NA>  <NA>   male       <NA>      1859
-#> 2   Abbott, Percy                <NA>  <NA>   male 1869-05-14      1869
-#> 3     Abbott, Mac                <NA>  <NA>   male 1877-07-03      1877
-#> 4  Abbott, Aubrey                <NA>  <NA>   male 1886-01-04      1886
-#> 5  Abbott, Joseph                <NA>  <NA>   male 1891-10-18      1891
-#> 6    Abbott, Tony                <NA>  <NA>   male 1957-11-04      1957
-#>     birthPlace  deathDate member senator wasPrimeMinister wikidataID
-#> 1      Bendigo 1940-02-28      0       1               NA   Q7323613
-#> 2       Hobart 1940-09-09      1       1               NA   Q7167212
-#> 3   Murrurundi 1960-12-30      0       1               NA   Q6722175
-#> 4  St Leonards 1975-04-30      1       0               NA   Q4819077
-#> 5 North Sydney 1965-05-07      1       0               NA   Q6208273
-#> 6       London       <NA>      1       0                1    Q348577
-#>                                                            wikipedia  adb
-#> 1          https://en.wikipedia.org/wiki/Richard_Abbott_(politician) <NA>
-#> 2 https://en.wikipedia.org/wiki/Percy_Abbott_(Australian_politician) <NA>
-#> 3                           https://en.wikipedia.org/wiki/Mac_Abbott <NA>
-#> 4                        https://en.wikipedia.org/wiki/Aubrey_Abbott <NA>
-#> 5   https://en.wikipedia.org/wiki/Joe_Abbott_(Australian_politician) <NA>
-#> 6                          https://en.wikipedia.org/wiki/Tony_Abbott <NA>
-#>   comments
-#> 1     <NA>
-#> 2     <NA>
-#> 3     <NA>
-#> 4     <NA>
-#> 5     <NA>
-#> 6     <NA>
+head(AustralianPoliticians::get_auspol('all'))
+#> # A tibble: 6 × 20
+#>   uniqueID   surname allOtherNames          firstName commonName displayName    
+#>   <chr>      <chr>   <chr>                  <chr>     <chr>      <chr>          
+#> 1 Abbott1859 Abbott  Richard Hartley Smith  Richard   <NA>       Abbott, Richard
+#> 2 Abbott1869 Abbott  Percy Phipps           Percy     <NA>       Abbott, Percy  
+#> 3 Abbott1877 Abbott  Macartney              Macartney Mac        Abbott, Mac    
+#> 4 Abbott1886 Abbott  Charles Lydiard Aubrey Charles   Aubrey     Abbott, Aubrey 
+#> 5 Abbott1891 Abbott  Joseph Palmer          Joseph    <NA>       Abbott, Joseph 
+#> 6 Abbott1957 Abbott  Anthony John           Anthony   Tony       Abbott, Tony   
+#> # … with 14 more variables: earlierOrLaterNames <chr>, title <chr>,
+#> #   gender <chr>, birthDate <date>, birthYear <dbl>, birthPlace <chr>,
+#> #   deathDate <date>, member <dbl>, senator <dbl>, wasPrimeMinister <dbl>,
+#> #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments <chr>
 ```
 
 uniqueID is usually the surname of the politician and the year that they
 were born, e.g. Abbott1859. In certain cases this is not enough to
 uniquely identify them and then we add the first name,
-e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there
-is punctuation in the surname, e.g. Ashley-Brown or O’Brien, this has
-been removed but capitalisation has been retained, so those would become
+e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is
+punctuation in the surname, e.g. Ashley-Brown or O’Brien, this has been
+removed but capitalisation has been retained, so those would become
 AshleyBrown or OBrien, respectively.
 
 commonName is used to highlight the name that the politician tended to
@@ -174,21 +141,18 @@ mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo;
 mpsEndReason; mpsChangedSeat; and mpsComments.
 
 ``` r
-head(AustralianPoliticians::by_division_mps)
-#>     uniqueID    division stateOfDivision enteredAtByElection     mpFrom
-#> 1 Abbott1869 New England             NSW                  No 1913-05-31
-#> 2 Abbott1886      Gwydir             NSW                  No 1925-11-14
-#> 3 Abbott1886      Gwydir             NSW                  No 1931-12-19
-#> 4 Abbott1891 New England             NSW                  No 1940-09-21
-#> 5 Abbott1957   Warringah             NSW                 Yes 1994-03-26
-#> 6   Abel1939       Evans             NSW                  No 1975-12-13
-#>         mpTo mpEndReason mpChangedSeat mpComments
-#> 1 1919-11-03     Retired            NA       <NA>
-#> 2 1929-10-12    Defeated            NA       <NA>
-#> 3 1937-03-28    Resigned            NA       <NA>
-#> 4 1949-10-31     Retired            NA       <NA>
-#> 5 2019-05-18    Defeated            NA       <NA>
-#> 6 1977-11-10     Retired            NA       <NA>
+head(AustralianPoliticians::get_auspol('mps'))
+#> # A tibble: 6 × 9
+#>   uniqueID   division    stateOfDivision enteredAtByElect… mpFrom     mpTo      
+#>   <chr>      <chr>       <chr>           <chr>             <date>     <date>    
+#> 1 Abbott1869 New England NSW             No                1913-05-31 1919-11-03
+#> 2 Abbott1886 Gwydir      NSW             No                1925-11-14 1929-10-12
+#> 3 Abbott1886 Gwydir      NSW             No                1931-12-19 1937-03-28
+#> 4 Abbott1891 New England NSW             No                1940-09-21 1949-10-31
+#> 5 Abbott1957 Warringah   NSW             Yes               1994-03-26 2019-05-18
+#> 6 Abel1939   Evans       NSW             No                1975-12-13 1977-11-10
+#> # … with 3 more variables: mpEndReason <chr>, mpChangedSeat <dbl>,
+#> #   mpComments <chr>
 ```
 
 Certain divisions change name. Sometimes this is minor, for instance
@@ -213,21 +177,18 @@ partyFrom; partyTo; partyChangedName; partySimplifiedName;
 partySpecificDateInputted; and partyComments.
 
 ``` r
-head(AustralianPoliticians::by_party)
-#>     uniqueID partyAbbrev                  partyName  partyFrom    partyTo
-#> 1 Abbott1859          CP   Australian Country Party       <NA>       <NA>
-#> 2 Abbott1869          CP   Australian Country Party 1919-11-03       <NA>
-#> 3 Abbott1869         LIB Liberal Party of Australia       <NA> 1917-02-17
-#> 4 Abbott1869         NAT          Nationalist Party 1917-02-17 1919-11-03
-#> 5 Abbott1877          CP   Australian Country Party       <NA>       <NA>
-#> 6 Abbott1886          CP   Australian Country Party       <NA>       <NA>
-#>   partyChangedName partySimplifiedName partySpecificDateInputted partyComments
-#> 1               NA           Nationals                        NA          <NA>
-#> 2               NA           Nationals                        NA          <NA>
-#> 3               NA            Liberals                        NA          <NA>
-#> 4               NA   Nationalist Party                        NA          <NA>
-#> 5               NA           Nationals                        NA          <NA>
-#> 6               NA           Nationals                        NA          <NA>
+head(AustralianPoliticians::get_auspol('allbyparty'))
+#> # A tibble: 6 × 9
+#>   uniqueID   partyAbbrev partyName        partyFrom  partyTo    partyChangedName
+#>   <chr>      <chr>       <chr>            <date>     <date>                <dbl>
+#> 1 Abbott1859 CP          Australian Coun… NA         NA                       NA
+#> 2 Abbott1869 CP          Australian Coun… 1919-11-03 NA                       NA
+#> 3 Abbott1869 LIB         Liberal Party o… NA         1917-02-17               NA
+#> 4 Abbott1869 NAT         Nationalist Par… 1917-02-17 1919-11-03               NA
+#> 5 Abbott1877 CP          Australian Coun… NA         NA                       NA
+#> 6 Abbott1886 CP          Australian Coun… NA         NA                       NA
+#> # … with 3 more variables: partySimplifiedName <chr>,
+#> #   partySpecificDateInputted <dbl>, partyComments <chr>
 ```
 
 Party can be a little confusing in cases where a politician changed
@@ -250,14 +211,14 @@ However, partySimplified abstracts away from that.
 
 Party name changes:
 
-  - The Country Party changed to the National Country Party on 3 May
+-   The Country Party changed to the National Country Party on 3 May
     1975 according to <http://nla.gov.au/nla.news-article110636121>. It
     then changed from the National Country Party to the National Party
     of Australia on 17 October 1982 according to
     <http://nla.gov.au/nla.news-article116476081>. And finally, it
     changed from the National Party of Australia to The Nationals on 11
     October 2003 according to the party website.
-  - The Nick Xenophon Team changed to Centre Alliance on 10 April 2018,
+-   The Nick Xenophon Team changed to Centre Alliance on 10 April 2018,
     according to ABC news reports.
 
 ### by\_state\_senators.rda
@@ -267,84 +228,29 @@ representing. The variables are: uniqueID; senatorsState; senatorsFrom;
 senatorsTo; senatorsEndReason; senatorsSec15Sel; and senatorsComments.
 
 ``` r
-head(AustralianPoliticians::by_state_senators)
-#>      uniqueID senatorsState senatorFrom  senatorTo senatorEndReason sec15Sel
-#> 1  Abbott1859           VIC  1928-12-18 1929-06-30          Retired        1
-#> 2  Abbott1869           NSW  1925-11-14 1929-06-30         Defeated        0
-#> 3  Abbott1877           NSW  1935-07-01 1941-06-30         Defeated        0
-#> 4   Abetz1958           TAS  1994-02-22       <NA>             <NA>        1
-#> 5   Adams1943            WA  2005-07-01 2012-03-31             Died        0
-#> 6 Adamson1857           QLD  1920-07-01 1922-05-02             Died        0
-#>   senatorComments
-#> 1            <NA>
-#> 2            <NA>
-#> 3            <NA>
-#> 4            <NA>
-#> 5            <NA>
-#> 6            <NA>
+head(AustralianPoliticians::get_auspol('senators'))
+#> # A tibble: 6 × 7
+#>   uniqueID    senatorsState senatorFrom senatorTo  senatorEndReason sec15Sel
+#>   <chr>       <chr>         <date>      <date>     <chr>               <dbl>
+#> 1 Abbott1859  VIC           1928-12-18  1929-06-30 Retired                 1
+#> 2 Abbott1869  NSW           1925-11-14  1929-06-30 Defeated                0
+#> 3 Abbott1877  NSW           1935-07-01  1941-06-30 Defeated                0
+#> 4 Abetz1958   TAS           1994-02-22  NA         <NA>                    1
+#> 5 Adams1943   WA            2005-07-01  2012-03-31 Died                    0
+#> 6 Adamson1857 QLD           1920-07-01  1922-05-02 Died                    0
+#> # … with 1 more variable: senatorComments <chr>
 ```
 
 This dataset is fairly similar to by\_division\_mps, expect that it also
 has senatorsSec15Sel This is a binary indicator variable and indicates
 whether the senator has been appointed rather than elected.
 
-### uniqueID\_to\_aphID.rda
-
-This dataset adds a correspondence between the unique identifiers used
-in these datasets and the identifier used by the Australian Parliament
-House on its website. the main issue with the APH identifier is that it
-is not clear who it is referring to without looking it up. Additionally,
-in certain cases it changes from time to time, and it is easy to
-accidently change the format by opening it in Excel.
-
-``` r
-head(AustralianPoliticians::uniqueID_to_aphID)
-#>     uniqueID aphID idsComments
-#> 1 Abbott1957   EZ5        <NA>
-#> 2 Abbott1886   JLJ        <NA>
-#> 3 Abbott1891   JLL        <NA>
-#> 4 Abbott1877   JNT        <NA>
-#> 5 Abbott1869   JLM        <NA>
-#> 6 Abbott1859   JYU        <NA>
-```
-
-### appointments.rda
-
-This dataset adds the beginnings of a dataset about ministerial
-appointments. Don’t use it yet.
-
-``` r
-head(AustralianPoliticians::positions)
-#>     uniqueID                                   position_name positionWikidataID
-#> 1 Abbott1957                     Prime Minister of Australia            Q319145
-#> 2 Abbott1957              Commonwealth Chairperson-in-Office           Q5153709
-#> 3 Abbott1957                             Minister for Health           Q6865857
-#> 4 Abbott1957                             Leader of the House          Q16147127
-#> 5 Abbott1957 Minister for Employment and Workplace Relations           Q6865809
-#> 6 Abbott1957                Minister for Employment Services          Q61791242
-#>   start_date   end_date
-#> 1 2013-09-18 2015-09-15
-#> 2 2013-09-18 2013-11-15
-#> 3 2003-10-07 2007-12-03
-#> 4 2001-11-26 2007-12-03
-#> 5 2001-01-30 2003-10-07
-#> 6 1998-10-21 2001-01-30
-```
-
-## TODO
-
-  - all.rda: The most recent entrants have incomplete uniqueIDs because
-    their birthdays haven’t been published yet. This needs to be updated
-    as soon as the birthdays are released.
-  - all.rda: Need to go through and update the the titles fields - it’s
-    very inconsistent.
-
 ## Roadmap
 
-  - ~~Add dataset of ministers with dates.~~
-  - Add information about education.
-  - Add information about relationships, for instance father-son, etc.
-  - Add voting based on JFG’s dataset.
+-   ~~Add dataset of ministers with dates.~~
+-   Add information about education.
+-   Add information about relationships, for instance father-son, etc.
+-   Add voting based on JFG’s dataset.
 
 ## Sources
 
@@ -368,12 +274,12 @@ and Tim Sherratt’s Historic Hansard records for the
 In terms of developing the package I am especially grateful for the
 advice and help of:
 
-  - Ben Readshaw,
-  - Edward Howlett,
-  - Kelly Lyons,
-  - Monica Alexander,
-  - Sharla Gelfand, and
-  - Simon Munzert.
+-   Ben Readshaw,
+-   Edward Howlett,
+-   Kelly Lyons,
+-   Monica Alexander,
+-   Sharla Gelfand, and
+-   Simon Munzert.
 
 Thank you to Patrick Leslie who generously donated data.
 
@@ -381,15 +287,7 @@ The icon of parliaments used in the hex sticker was made by
 <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
 from
 <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a>
-
 </div>
-
-## Citation
-
-If you use `AustralianPoliticians`, please consider citing:
-
-Alexander, Rohan. (2019). Three datasets on Australian politics. Working
-paper.
 
 ## Author information
 

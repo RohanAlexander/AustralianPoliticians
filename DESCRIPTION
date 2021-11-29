@@ -11,13 +11,14 @@ Authors@R:
       family = "Hodgetts",
       role = c("aut"),
       email = "hodgetts.paul@outlook.com"))
-Description: Provides access to biographical and political data about Australian federal politicians who served between 1901 and 2021.
-    This enhances the reproducibility of research that uses this data.
+Description: Provides access to biographical and political data about Australian 
+    federal politicians who served between 1901 and 2021. This enhances how 
+    reproducible research is that uses this data.
 Depends:
     R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 URL: https://github.com/RohanAlexander/AustralianPoliticians
 BugReports: https://github.com/RohanAlexander/AustralianPoliticians/issues
 RoxygenNote: 7.1.2

@@ -12,29 +12,17 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" width="240px" align="right" /> 
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.org/RohanAlexander/AustralianPoliticians.svg?branch=master)](https://travis-ci.org/RohanAlexander/AustralianPoliticians)
-<!-- badges: end -->
+# AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" align="right" height="200" />
 
-
-`AustralianPoliticians` is a collection of datasets related to Australian politicians. The datasets are:
+The goal of `AustralianPoliticians` is to provide access to biographical and political data about Australian federal politicians who served between 1901 and 2021. This enhances the reproducibility of research that uses this data. The packages are:
 
 * **all.rda**: The main dataset. 
 * **by_division_mps.rda**: Adds information about the division ('seat') of the politician. 
 * **by_party.rda**: Adds information about the party of the politician. 
 * **by_state_senators.rda**: Adds information about the state that a senator was representing.
-* **cabinet.rda**: A provisional dataset of who was in the cabinet.
-* **ministry.rda**: A provisional dataset of who was in the ministry
-* **uniqueID_to_aphID.rda**: A correspondence between the uniqueIDs used in these datasets and the IDs used by the Australian Parliament House.
 
-
-![alt text](man/figures/schema.png)
-
-In general, the datasets are up-to-date as of 30 November 2019 (i.e. they include the deaths of Fisher, Darling and Humphreys; the appointments of Henderson and Molan; and Sinodinos' retirement).
-
-The ministry and cabinets datasets are up-to-date as of 2017.
+The datasets are up-to-date as of 29 November 2021.
 
 If you are using this for anything other than general interest, then please check the comments column in case there is a flag that could affect your results. You're also welcome to get in touch so that I can make sure that the aspect you're interested in is of a good enough quality for your purposes.
 
@@ -43,10 +31,15 @@ If you have suggestions on how I could improve the datasets, or corrections, ple
 
 ## Installation
 
-You can install this package from GitHub with:
+You can install the released version of `AustralianPoliticians` from CRAN:
 
 ``` r
-# install.packages("devtools")
+install.packages("AustralianPoliticians")
+```
+
+or the development version from GitHub with:
+
+``` r
 devtools::install_github("RohanAlexander/AustralianPoliticians")
 ```
 
@@ -60,21 +53,20 @@ library(tidyverse)
 
 devtools::install_github("RohanAlexander/AustralianPoliticians")
 
-all <- AustralianPoliticians::all %>% as_tibble()
-by_division_mps <- AustralianPoliticians::by_division_mps %>% as_tibble()
-by_party <- AustralianPoliticians::by_party %>% as_tibble()
-by_state_senators <- AustralianPoliticians::by_state_senators %>% as_tibble()
-uniqueID_to_aphID <- AustralianPoliticians::uniqueID_to_aphID %>% as_tibble()
+all <- AustralianPoliticians::get_auspol('all')
+party <- AustralianPoliticians::get_auspol('allbyparty')
+mps <- AustralianPoliticians::get_auspol('mps')
+senators <- AustralianPoliticians::get_auspol('senators')
 ```
 
 You could then combine the tables using left_join:
 
 ```{r combinetables, eval=FALSE, echo=TRUE}
 all_individuals_with_their_division <- all %>% 
-  left_join(by_division_mps, by = c("uniqueID"))
+  left_join(mps, by = c("uniqueID"))
 ```
 
-Monica Alexander has written a brief blog post where she uses the package to look at life expectency of Australian politicians:  
+Monica Alexander has written a brief blog post where she uses the package to look at life expectancy of Australian politicians:  
 https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/
 
 ## Dataset details
@@ -83,7 +75,7 @@ https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/
 This is the main dataset and contains one row per politician, with columns: uniqueID, surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, birthPlace, deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
 
 ```{r}
-head(AustralianPoliticians::all)
+head(AustralianPoliticians::get_auspol('all'))
 ```
 
 uniqueID is usually the surname of the politician and the year that they were born, e.g. Abbott1859. In certain cases this is not enough to uniquely identify them and then we add the first name, e.g. AndersonCharles1897 and AndersonGordon1897. In cases where there is punctuation in the surname, e.g. Ashley-Brown or O'Brien, this has been removed but capitalisation has been retained, so those would become AshleyBrown or OBrien, respectively. 
@@ -103,7 +95,7 @@ adb is a link to the Australian Dictionary of Biography.
 This dataset adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID; mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo; mpsEndReason; mpsChangedSeat; and mpsComments.
 
 ```{r}
-head(AustralianPoliticians::by_division_mps)
+head(AustralianPoliticians::get_auspol('mps'))
 ```
 
 Certain divisions change name. Sometimes this is minor, for instance Kingsford-Smith to Kingsford Smith, and sometimes it is total. In all cases this is being treated as change in division -- the politician is treated as finishing with one division and moving to another -- but changedSeat can be used to identify these cases and adjust for them if necessary.
@@ -117,7 +109,7 @@ changedSeat is a binary indicator variable as to whether the politician left a d
 This dataset adds information about the party of the politician. One row per party-politician, with columns: uniqueID; partyAbbrev; partyName; partyFrom; partyTo; partyChangedName; partySimplifiedName; partySpecificDateInputted; and partyComments.
 
 ```{r}
-head(AustralianPoliticians::by_party)
+head(AustralianPoliticians::get_auspol('allbyparty'))
 ```
 
 Party can be a little confusing in cases where a politician changed party. In general, in this dataset, the to/from dates are set-up so that when a politician is in parliament they will have the correct party. However the dataset should not be used to say anything about when they are out of parliament. For instance, some politicians lost their seat, changed party, and then regained a seat in parliament. The dataset does not know when they changed party while they were out of parliament, and it assumes that they changed party either at the same time that they lost their seat or at the same time as they re-gained a seat. Similarly, there are plenty of cases where a politician has ceased being a member after they leave parliament, for instance, Malcolm Fraser left the Liberals. Again, that is not reflected in the dataset.
@@ -134,37 +126,10 @@ Party name changes:
 This dataset adds information about the state that a senator was representing. The variables are: uniqueID; senatorsState; senatorsFrom; senatorsTo; senatorsEndReason; senatorsSec15Sel; and senatorsComments.
 
 ```{r}
-head(AustralianPoliticians::by_state_senators)
+head(AustralianPoliticians::get_auspol('senators'))
 ```
 
 This dataset is fairly similar to by_division_mps, expect that it also has senatorsSec15Sel This is a binary indicator variable and indicates whether the senator has been appointed rather than elected.
-
-
-
-### uniqueID_to_aphID.rda
-This dataset adds a correspondence between the unique identifiers used in these datasets and the identifier used by the Australian Parliament House on its website. the main issue with the APH identifier is that it is not clear who it is referring to without looking it up. Additionally, in certain cases it changes from time to time, and it is easy to accidently change the format by opening it in Excel.
-
-```{r}
-head(AustralianPoliticians::uniqueID_to_aphID)
-```
-
-
-### appointments.rda
-This dataset adds the beginnings of a dataset about ministerial appointments. Don't use it yet.
-
-```{r}
-head(AustralianPoliticians::positions)
-```
-
-
-
-
-
-
-## TODO
-
-* all.rda: The most recent entrants have incomplete uniqueIDs because their birthdays haven't been published yet. This needs to be updated as soon as the birthdays are released. 
-* all.rda: Need to go through and update the the titles fields - it's very inconsistent.
 
 
 ## Roadmap
@@ -197,12 +162,6 @@ Thank you to Patrick Leslie who generously donated data.
 
 The icon of parliaments used in the hex sticker was made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
 
-
-## Citation
-
-If you use `AustralianPoliticians`, please consider citing:
-
-Alexander, Rohan. (2019). Three datasets on Australian politics. Working paper.
 
 ## Author information
 
