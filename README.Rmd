@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 
 # AustralianPoliticians <img src="man/figures/AustralianPoliticians.png" align="right" height="200" />
 
-The goal of `AustralianPoliticians` is to provide access to biographical and political data about Australian federal politicians who served between 1901 and 2021. This enhances the reproducibility of research that uses this data. The packages are:
+The goal of `AustralianPoliticians` is to provide access to biographical and political data about Australian federal politicians who served between 1901 and 2021. This enhances the reproducibility of research that uses this data. The datasets are:
 
-* **all.rda**: The main dataset. 
-* **by_division_mps.rda**: Adds information about the division ('seat') of the politician. 
-* **by_party.rda**: Adds information about the party of the politician. 
-* **by_state_senators.rda**: Adds information about the state that a senator was representing.
+* **all**: The main dataset. 
+* **mps**: Adds information about the division ('seat') of the politician. 
+* **allbyparty**: Adds information about the party of the politician. 
+* **senators**: Adds information about the state that a senator was representing.
 
 The datasets are up-to-date as of 29 November 2021.
 
@@ -71,7 +71,7 @@ https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/
 
 ## Dataset details
 
-### all.rda
+### all
 This is the main dataset and contains one row per politician, with columns: uniqueID, surname, allOtherNames, firstName, commonName, displayName, earlierOrLaterNames, title, gender, birthDate, birthYear, birthPlace, deathDate, member, senator, wikidataID, wikipedia, adb, and comments.
 
 ```{r}
@@ -91,7 +91,7 @@ member and senator are binary indicator variables used to signify whether the po
 adb is a link to the Australian Dictionary of Biography.
 
 
-### by_division_mps.rda
+### mps
 This dataset adds information about the division ('seat') of the politician. One row per division-politician, with columns: uniqueID; mpsDivision; mpsState; mpsEnteredAtByElection; mpsFrom; mpsTo; mpsEndReason; mpsChangedSeat; and mpsComments.
 
 ```{r}
@@ -105,7 +105,7 @@ byElection is a binary indicator variable as to whether the politician was enter
 changedSeat is a binary indicator variable as to whether the politician left a division because they were changing the division, as opposed to losing an election or retiring.
 
 
-### by_party.rda
+### allbyparty
 This dataset adds information about the party of the politician. One row per party-politician, with columns: uniqueID; partyAbbrev; partyName; partyFrom; partyTo; partyChangedName; partySimplifiedName; partySpecificDateInputted; and partyComments.
 
 ```{r}
@@ -122,7 +122,7 @@ Party name changes:
 * The Nick Xenophon Team changed to Centre Alliance on 10 April 2018, according to ABC news reports.
 
 
-### by_state_senators.rda
+### senators
 This dataset adds information about the state that a senator was representing. The variables are: uniqueID; senatorsState; senatorsFrom; senatorsTo; senatorsEndReason; senatorsSec15Sel; and senatorsComments.
 
 ```{r}
@@ -153,6 +153,7 @@ In terms of developing the package I am especially grateful for the advice and h
 
 * Ben Readshaw,
 * Edward Howlett,
+* Julia Haider,
 * Kelly Lyons,
 * Monica Alexander,
 * Sharla Gelfand, and
@@ -167,7 +168,14 @@ The icon of parliaments used in the hex sticker was made by <a href="https://www
 
 **Rohan Alexander** (corresponding author and repository maintainer)  
 University of Toronto  
-Information Sciences  
+Faculty of Information and Department of Statistical Sciences
 140 St George St  
 Toronto, ON, Canada  
 Email: rohan.alexander@utoronto.ca
+
+**Paul A. Hodgetts**
+University of Toronto  
+Faculty of Information
+140 St George St  
+Toronto, ON, Canada  
+

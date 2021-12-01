@@ -6,15 +6,14 @@
 The goal of `AustralianPoliticians` is to provide access to biographical
 and political data about Australian federal politicians who served
 between 1901 and 2021. This enhances the reproducibility of research
-that uses this data. The packages are:
+that uses this data. The datasets are:
 
--   **all.rda**: The main dataset.
--   **by\_division\_mps.rda**: Adds information about the division
-    (‘seat’) of the politician.
--   **by\_party.rda**: Adds information about the party of the
+-   **all**: The main dataset.
+-   **mps**: Adds information about the division (‘seat’) of the
     politician.
--   **by\_state\_senators.rda**: Adds information about the state that a
-    senator was representing.
+-   **allbyparty**: Adds information about the party of the politician.
+-   **senators**: Adds information about the state that a senator was
+    representing.
 
 The datasets are up-to-date as of 29 November 2021.
 
@@ -70,7 +69,7 @@ package to look at life expectancy of Australian politicians:
 
 ## Dataset details
 
-### all.rda
+### all
 
 This is the main dataset and contains one row per politician, with
 columns: uniqueID, surname, allOtherNames, firstName, commonName,
@@ -133,7 +132,7 @@ so she was never a senator.
 
 adb is a link to the Australian Dictionary of Biography.
 
-### by\_division\_mps.rda
+### mps
 
 This dataset adds information about the division (‘seat’) of the
 politician. One row per division-politician, with columns: uniqueID;
@@ -169,7 +168,7 @@ changedSeat is a binary indicator variable as to whether the politician
 left a division because they were changing the division, as opposed to
 losing an election or retiring.
 
-### by\_party.rda
+### allbyparty
 
 This dataset adds information about the party of the politician. One row
 per party-politician, with columns: uniqueID; partyAbbrev; partyName;
@@ -221,7 +220,7 @@ Party name changes:
 -   The Nick Xenophon Team changed to Centre Alliance on 10 April 2018,
     according to ABC news reports.
 
-### by\_state\_senators.rda
+### senators
 
 This dataset adds information about the state that a senator was
 representing. The variables are: uniqueID; senatorsState; senatorsFrom;
@@ -276,6 +275,7 @@ advice and help of:
 
 -   Ben Readshaw,
 -   Edward Howlett,
+-   Julia Haider,
 -   Kelly Lyons,
 -   Monica Alexander,
 -   Sharla Gelfand, and
@@ -293,7 +293,11 @@ from
 
 **Rohan Alexander** (corresponding author and repository maintainer)  
 University of Toronto  
-Information Sciences  
-140 St George St  
+Faculty of Information and Department of Statistical Sciences 140 St
+George St  
 Toronto, ON, Canada  
 Email: <rohan.alexander@utoronto.ca>
+
+**Paul A. Hodgetts** University of Toronto  
+Faculty of Information 140 St George St  
+Toronto, ON, Canada

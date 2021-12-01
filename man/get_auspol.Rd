@@ -24,6 +24,9 @@ The specifics of these are:
 - `allbyparty` requests the australian_politicians-all-by_party.csv dataset.
 - `mps` requests the australian_politicians-mps-by_division.csv dataset.
 - `senators` requests the australian_politicians-senators-by_state.csv dataset.
+- `ministries` requests the australian_politicians-ministries.csv dataset.
+- `aphID` requests the australian_politicians-uniqueID_to_aphID.csv dataset.
+- `aph_ministries` requests the australian_politicians-uniqueID_to_aph_ministries.csv dataset.
 
 An incorrect request (an argument not associated with a dataset or non-character
 string argument) will stop function processes and return an error message.
